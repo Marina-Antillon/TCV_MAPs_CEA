@@ -23,25 +23,25 @@ For questions, please contact Marina Antillon via LinkedIn.
 In the current study, we leverage a previously developed model of typhoid transmission (LINKS) to evaluate the impact and cost-effectiveness of a potential micro-array patch typhoid conjugate vaccine not yet under development. The analysis assumes that traditional (needle-and-syringe) typhoid conjugate vaccines would be rolled out before 2032 in most or all low- and middle-income countries and that MAPs would be non-inferior in terms of the probability and duration of protection. The analysis is also novel in taking into account the 
 
 The analysis encompasses two major geographical scopes:
-A. a global analysis where the cost-effectiveness of TCV-MAPS is considered on a national basis.
-B. a sub-national analysis where the cost-effectiveness of TCV-MAPS is considered on a district-by-district basis.
+A. a global analysis where the cost-effectiveness of TCV-MAPS is considered on a national basis  
+B. a sub-national analysis where the cost-effectiveness of TCV-MAPS is considered on a district-by-district basis  
 
 ---
 # Brief description
 
 The analysis is broadly defined in four parts, each of four parts is executed in various R code files:  
-I. Re-fitting incidence parameters to accommodate for 5 wealth quintiles in all countries.
-II. Simulating vaccine impact for national-level analysis
-    + Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator.
-    + Simulating the impact of MAPS vaccines in the 2030's.
-    + Cost-effectiveness analysis
-III. Simulating vaccine impact for sub-national (district) level analysis in five example countries
-    + Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator.
-    + Simulating the impact of MAPS vaccines in the 2030's.
-    + Cost-effectiveness analysis
-V. Collating the results
-    + National-level analyses
-    + Subnational analyses
+I. Re-fitting incidence parameters to accommodate for 5 wealth quintiles in all countries  
+II. Simulating vaccine impact for national-level analysis  
+    + Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator  
+    + Simulating the impact of MAPS vaccines in the 2030's  
+    + Cost-effectiveness analysis  
+III. Simulating vaccine impact for sub-national (district) level analysis in five example countries  
+    + Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator  
+    + Simulating the impact of MAPS vaccines in the 2030's  
+    + Cost-effectiveness analysis  
+V. Collating the results  
+    + National-level analyses  
+    + Subnational analyses  
 
 ---
 ## File structure, output, and dependencies
