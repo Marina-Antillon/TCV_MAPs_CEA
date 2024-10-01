@@ -1,5 +1,5 @@
-# Microarray patch vaccines for typhoid conjugate vaccines: a global cost-effectiveness analysis
-=======================
+Microarray patch vaccines for typhoid conjugate vaccines: a global cost-effectiveness analysis
+==============================================================================================
 
 Administered by Marina Antillon, PhD.  
 
@@ -15,7 +15,8 @@ Seattle, WA, USA
 
 License: GPL-3.0 
 
-For questions, please contact Marina Antillon via LinkedIn. 
+For questions, please contact Marina Antillon via LinkedIn.
+
 ---
 
 # Project Objective 
@@ -25,6 +26,7 @@ In the current study, we leverage a previously developed model of typhoid transm
 The analysis encompasses two major geographical scopes:
 A. a global analysis where the cost-effectiveness of TCV-MAPS is considered on a national basis.
 B. a sub-national analysis where the cost-effectiveness of TCV-MAPS is considered on a district-by-district basis.
+
 ---
 
 # Brief description
@@ -46,6 +48,7 @@ V. Collating the results
 ## File structure, output, and dependencies
 
 ** TO WRITE **
+
 ---
 # Computational considerations
 
