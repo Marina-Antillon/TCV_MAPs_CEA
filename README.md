@@ -64,6 +64,7 @@ Some of the results tables for the project are produced automatically with the c
 
 A single run of the code takes about 60 minutes in a MacBook Air (M1 chip, 2020 model) with 16 GB of RAM. 
 
+---
 # Installation to-do list (all free)
 - [R](https://www.r-project.org) (required)
 - [renv](https://rstudio.github.io/renv/index.html) (packages installed for R; required)
