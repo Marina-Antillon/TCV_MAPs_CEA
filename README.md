@@ -18,7 +18,6 @@ License: GPL-3.0
 For questions, please contact Marina Antillon via LinkedIn.
 
 ---
-
 # Project Objective 
 
 In the current study, we leverage a previously developed model of typhoid transmission (LINKS) to evaluate the impact and cost-effectiveness of a potential micro-array patch typhoid conjugate vaccine not yet under development. The analysis assumes that traditional (needle-and-syringe) typhoid conjugate vaccines would be rolled out before 2032 in most or all low- and middle-income countries and that MAPs would be non-inferior in terms of the probability and duration of protection. The analysis is also novel in taking into account the 
@@ -28,7 +27,6 @@ A. a global analysis where the cost-effectiveness of TCV-MAPS is considered on a
 B. a sub-national analysis where the cost-effectiveness of TCV-MAPS is considered on a district-by-district basis.
 
 ---
-
 # Brief description
 
 The analysis is broadly defined in four parts, each of four parts is executed in various R code files:  
@@ -45,6 +43,7 @@ V. Collating the results
     + National-level analyses
     + Subnational analyses
 
+---
 ## File structure, output, and dependencies
 
 ** TO WRITE **
