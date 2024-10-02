@@ -1,0 +1,925 @@
+ISO3,Country,Residence Type,Service Type,Year,Coverage,Population,Service level
+AFG,Afghanistan,total,Sanitation,2020,50.49965,19658673.59393,At least basic
+AFG,Afghanistan,total,Sanitation,2020,10.9432,4260006.16127,Limited service
+AFG,Afghanistan,total,Sanitation,2020,10.78376,4197939.30647,Open defecation
+AFG,Afghanistan,total,Sanitation,2020,27.77339,10811720.30379,Unimproved
+AGO,Angola,total,Sanitation,2020,51.66033,16978822.85379,At least basic
+AGO,Angola,total,Sanitation,2020,21.00152,6902416.36262,Limited service
+AGO,Angola,total,Sanitation,2020,17.96832,5905516.92719,Open defecation
+AGO,Angola,total,Sanitation,2020,9.36983,3079513.44788,Unimproved
+ALB,Albania,total,Sanitation,2020,51.60771,1485166.70773,Basic service
+ALB,Albania,total,Sanitation,2020,0.57195,16459.61601,Limited service
+ALB,Albania,total,Sanitation,2020,0,0,Open defecation
+ALB,Albania,total,Sanitation,2020,47.69108,1372453.96125,Safely managed service
+ALB,Albania,total,Sanitation,2020,0.12926,3719.71478,Unimproved
+AND,Andorra,total,Sanitation,2020,0,0,Basic service
+AND,Andorra,total,Sanitation,2020,0,0,Limited service
+AND,Andorra,total,Sanitation,2020,0,0,Open defecation
+AND,Andorra,total,Sanitation,2020,100,77265.00286,Safely managed service
+AND,Andorra,total,Sanitation,2020,0,0,Unimproved
+ARE,United Arab Emirates,total,Sanitation,2020,0,0,Basic service
+ARE,United Arab Emirates,total,Sanitation,2020,0.77043,76198.60872,Limited service
+ARE,United Arab Emirates,total,Sanitation,2020,0,0,Open defecation
+ARE,United Arab Emirates,total,Sanitation,2020,99.22957,9814201.39128,Safely managed service
+ARE,United Arab Emirates,total,Sanitation,2020,0,0,Unimproved
+ARM,Armenia,total,Sanitation,2020,24.60766,729182.56106,Basic service
+ARM,Armenia,total,Sanitation,2020,0.42505,12595.07879,Limited service
+ARM,Armenia,total,Sanitation,2020,0.01068,316.57939,Open defecation
+ARM,Armenia,total,Sanitation,2020,69.32908,2054382.90867,Safely managed service
+ARM,Armenia,total,Sanitation,2020,5.62753,166756.87204,Unimproved
+ASM,American Samoa,total,Sanitation,2020,54.45476,30057.39471,At least basic
+ASM,American Samoa,total,Sanitation,2020,44.57549,24604.33378,Limited service
+ASM,American Samoa,total,Sanitation,2020,0.70087,386.85827,Open defecation
+ASM,American Samoa,total,Sanitation,2020,0.26888,148.41386,Unimproved
+AUS,Australia,total,Sanitation,2020,25.73166,6561541.90436,Basic service
+AUS,Australia,total,Sanitation,2020,0,0,Limited service
+AUS,Australia,total,Sanitation,2020,0,0,Open defecation
+AUS,Australia,total,Sanitation,2020,74.25949,18936081.96316,Safely managed service
+AUS,Australia,total,Sanitation,2020,0.00885,2256.13197,Unimproved
+AUT,Austria,total,Sanitation,2020,0.33008,29728.30098,Basic service
+AUT,Austria,total,Sanitation,2020,0,0,Limited service
+AUT,Austria,total,Sanitation,2020,0,0,Open defecation
+AUT,Austria,total,Sanitation,2020,99.64252,8974204.36349,Safely managed service
+AUT,Austria,total,Sanitation,2020,0.0274,2467.33561,Unimproved
+BDI,Burundi,total,Sanitation,2020,45.72751,5437358.35148,At least basic
+BDI,Burundi,total,Sanitation,2020,12.63031,1501842.50172,Limited service
+BDI,Burundi,total,Sanitation,2020,2.58483,307356.61983,Open defecation
+BDI,Burundi,total,Sanitation,2020,39.05735,4644223.72698,Unimproved
+BEL,Belgium,total,Sanitation,2020,10.66545,1236084.28129,Basic service
+BEL,Belgium,total,Sanitation,2020,0.51371,59537.51007,Limited service
+BEL,Belgium,total,Sanitation,2020,0,0,Open defecation
+BEL,Belgium,total,Sanitation,2020,88.82071,10293979.22675,Safely managed service
+BEL,Belgium,total,Sanitation,2020,0.00013,14.98236,Unimproved
+BEN,Benin,total,Sanitation,2020,16.96288,2056444.12294,At least basic
+BEN,Benin,total,Sanitation,2020,19.65942,2383350.27405,Limited service
+BEN,Benin,total,Sanitation,2020,51.57582,6252638.30956,Open defecation
+BEN,Benin,total,Sanitation,2020,11.80188,1430765.36135,Unimproved
+BFA,Burkina Faso,total,Sanitation,2020,21.66437,4528564.19876,At least basic
+BFA,Burkina Faso,total,Sanitation,2020,32.29477,6750664.56384,Limited service
+BFA,Burkina Faso,total,Sanitation,2020,39.9208,8344756.32432,Open defecation
+BFA,Burkina Faso,total,Sanitation,2020,6.12006,1279293.08073,Unimproved
+BGD,Bangladesh,total,Sanitation,2020,15.49528,25519077.13417,Basic service
+BGD,Bangladesh,total,Sanitation,2020,23.84922,39277139.97664,Limited service
+BGD,Bangladesh,total,Sanitation,2020,0,0,Open defecation
+BGD,Bangladesh,total,Sanitation,2020,38.66942,63684430.61284,Safely managed service
+BGD,Bangladesh,total,Sanitation,2020,21.98608,36208744.27635,Unimproved
+BGR,Bulgaria,total,Sanitation,2020,13.80619,959315.77723,Basic service
+BGR,Bulgaria,total,Sanitation,2020,13.9646,970322.70056,Limited service
+BGR,Bulgaria,total,Sanitation,2020,0,0,Open defecation
+BGR,Bulgaria,total,Sanitation,2020,72.22877,5018776.6439,Safely managed service
+BGR,Bulgaria,total,Sanitation,2020,0.00043,29.87824,Unimproved
+BHR,Bahrain,total,Sanitation,2020,8.76618,149163.85987,Basic service
+BHR,Bahrain,total,Sanitation,2020,0,0,Limited service
+BHR,Bahrain,total,Sanitation,2020,0,0,Open defecation
+BHR,Bahrain,total,Sanitation,2020,91.23382,1552419.14006,Safely managed service
+BHR,Bahrain,total,Sanitation,2020,0,0,Unimproved
+BLM,Saint Barthélemy,total,Sanitation,2020,100,0,At least basic
+BLM,Saint Barthélemy,total,Sanitation,2020,0,0,Limited service
+BLM,Saint Barthélemy,total,Sanitation,2020,0,0,Open defecation
+BLM,Saint Barthélemy,total,Sanitation,2020,0,0,Unimproved
+BLR,Belarus,total,Sanitation,2020,24.00927,2268713.18104,Basic service
+BLR,Belarus,total,Sanitation,2020,1.63975,154945.47109,Limited service
+BLR,Belarus,total,Sanitation,2020,0,0,Open defecation
+BLR,Belarus,total,Sanitation,2020,73.89505,6982580.11665,Safely managed service
+BLR,Belarus,total,Sanitation,2020,0.45593,43082.23141,Unimproved
+BLZ,Belize,total,Sanitation,2020,88.21428,350758.49898,At least basic
+BLZ,Belize,total,Sanitation,2020,9.04826,35977.77309,Limited service
+BLZ,Belize,total,Sanitation,2020,0.56937,2263.91612,Open defecation
+BLZ,Belize,total,Sanitation,2020,2.1681,8620.82613,Unimproved
+BMU,Bermuda,total,Sanitation,2020,99.90314,62212.68063,At least basic
+BMU,Bermuda,total,Sanitation,2020,0,0,Limited service
+BMU,Bermuda,total,Sanitation,2020,0,0,Open defecation
+BMU,Bermuda,total,Sanitation,2020,0.09686,60.31762,Unimproved
+BOL,Bolivia (Plurinational State of),total,Sanitation,2020,12.83421,1498141.15794,Basic service
+BOL,Bolivia (Plurinational State of),total,Sanitation,2020,17.32293,2022110.87484,Limited service
+BOL,Bolivia (Plurinational State of),total,Sanitation,2020,9.79331,1143175.73881,Open defecation
+BOL,Bolivia (Plurinational State of),total,Sanitation,2020,52.92221,6177625.38533,Safely managed service
+BOL,Bolivia (Plurinational State of),total,Sanitation,2020,7.12733,831975.84331,Unimproved
+BRA,Brazil,total,Sanitation,2020,41.37216,87940409.95546,Basic service
+BRA,Brazil,total,Sanitation,2020,0.09649,205090.47001,Limited service
+BRA,Brazil,total,Sanitation,2020,0.30413,646453.05897,Open defecation
+BRA,Brazil,total,Sanitation,2020,48.70632,103529854.82262,Safely managed service
+BRA,Brazil,total,Sanitation,2020,9.52091,20237599.70569,Unimproved
+BRB,Barbados,total,Sanitation,2020,98.09246,281889.28504,At least basic
+BRB,Barbados,total,Sanitation,2020,1.90754,5481.71013,Limited service
+BRB,Barbados,total,Sanitation,2020,0,0,Unimproved
+BTN,Bhutan,total,Sanitation,2020,11.2899,87114.18939,Basic service
+BTN,Bhutan,total,Sanitation,2020,9.84979,76002.13308,Limited service
+BTN,Bhutan,total,Sanitation,2020,0,0,Open defecation
+BTN,Bhutan,total,Sanitation,2020,65.21666,503219.56221,Safely managed service
+BTN,Bhutan,total,Sanitation,2020,13.64366,105276.11533,Unimproved
+BWA,Botswana,total,Sanitation,2020,80.02625,1881917.1868,At least basic
+BWA,Botswana,total,Sanitation,2020,5.57456,131092.6562,Limited service
+BWA,Botswana,total,Sanitation,2020,9.81038,230703.2786,Open defecation
+BWA,Botswana,total,Sanitation,2020,4.58882,107911.92477,Unimproved
+CAF,Central African Republic,total,Sanitation,2020,0.51483,24864.98798,Basic service
+CAF,Central African Republic,total,Sanitation,2020,15.78225,762245.62691,Limited service
+CAF,Central African Republic,total,Sanitation,2020,25.14773,1214576.0461,Open defecation
+CAF,Central African Republic,total,Sanitation,2020,13.60381,657031.75186,Safely managed service
+CAF,Central African Republic,total,Sanitation,2020,44.95138,2171045.5871,Unimproved
+CAN,Canada,total,Sanitation,2020,14.66447,5534686.52123,Basic service
+CAN,Canada,total,Sanitation,2020,0,0,Limited service
+CAN,Canada,total,Sanitation,2020,0,0,Open defecation
+CAN,Canada,total,Sanitation,2020,84.36839,31842450.58379,Safely managed service
+CAN,Canada,total,Sanitation,2020,0.96714,365018.89197,Unimproved
+CHE,Switzerland,total,Sanitation,2020,0.24832,21490.92621,Basic service
+CHE,Switzerland,total,Sanitation,2020,0.10013,8665.54584,Limited service
+CHE,Switzerland,total,Sanitation,2020,0,0,Open defecation
+CHE,Switzerland,total,Sanitation,2020,99.65156,8624461.77201,Safely managed service
+CHE,Switzerland,total,Sanitation,2020,0,0,Unimproved
+CHL,Chile,total,Sanitation,2020,21.3986,4090600.25616,Basic service
+CHL,Chile,total,Sanitation,2020,0,0,Limited service
+CHL,Chile,total,Sanitation,2020,0,0,Open defecation
+CHL,Chile,total,Sanitation,2020,78.6014,15025607.49915,Safely managed service
+CHL,Chile,total,Sanitation,2020,0,0.24469,Unimproved
+CHN,China,total,Sanitation,2020,22.72037,332430945.89244,Basic service
+CHN,China,total,Sanitation,2020,2.54522,37240108.26348,Limited service
+CHN,China,total,Sanitation,2020,0.32134,4701721.15249,Open defecation
+CHN,China,total,Sanitation,2020,69.65581,1019162309.61924,Safely managed service
+CHN,China,total,Sanitation,2020,4.75726,69605395.20402,Unimproved
+CIV,Côte d’Ivoire,total,Sanitation,2020,34.56596,9117905.32003,At least basic
+CIV,Côte d’Ivoire,total,Sanitation,2020,22.53705,5944886.03997,Limited service
+CIV,Côte d’Ivoire,total,Sanitation,2020,25.25768,6662540.7579,Open defecation
+CIV,Côte d’Ivoire,total,Sanitation,2020,17.6393,4652944.21183,Unimproved
+CMR,Cameroon,total,Sanitation,2020,44.63112,11847717.10441,At least basic
+CMR,Cameroon,total,Sanitation,2020,15.05621,3996801.06201,Limited service
+CMR,Cameroon,total,Sanitation,2020,5.54589,1472205.42095,Open defecation
+CMR,Cameroon,total,Sanitation,2020,34.76677,9229139.92471,Unimproved
+COD,Democratic Republic of the Congo,total,Sanitation,2020,2.69765,2416049.14935,Basic service
+COD,Democratic Republic of the Congo,total,Sanitation,2020,20.13036,18029037.37123,Limited service
+COD,Democratic Republic of the Congo,total,Sanitation,2020,12.02538,10770103.1472,Open defecation
+COD,Democratic Republic of the Congo,total,Sanitation,2020,12.69103,11366261.78124,Safely managed service
+COD,Democratic Republic of the Congo,total,Sanitation,2020,52.45558,46979956.55993,Unimproved
+COG,Congo,total,Sanitation,2020,20.45975,1128987.57469,At least basic
+COG,Congo,total,Sanitation,2020,34.22803,1888734.33583,Limited service
+COG,Congo,total,Sanitation,2020,8.45099,466333.34854,Open defecation
+COG,Congo,total,Sanitation,2020,36.86123,2034036.70237,Unimproved
+COK,Cook Islands,total,Sanitation,2020,99.08539,17403.35758,At least basic
+COK,Cook Islands,total,Sanitation,2020,0,0,Limited service
+COK,Cook Islands,total,Sanitation,2020,0.91461,160.64198,Unimproved
+COL,Colombia,total,Sanitation,2020,75.36575,38348268.27783,Basic service
+COL,Colombia,total,Sanitation,2020,3.30808,1683245.71475,Limited service
+COL,Colombia,total,Sanitation,2020,2.58548,1315569.29726,Open defecation
+COL,Colombia,total,Sanitation,2020,18.31488,9319138.31066,Safely managed service
+COL,Colombia,total,Sanitation,2020,0.42581,216662.399,Unimproved
+CPV,Cabo Verde,total,Sanitation,2020,79.11569,439873.75442,At least basic
+CPV,Cabo Verde,total,Sanitation,2020,6.4362,35784.49321,Limited service
+CPV,Cabo Verde,total,Sanitation,2020,14.44811,80329.76461,Open defecation
+CPV,Cabo Verde,total,Sanitation,2020,0,0,Unimproved
+CRI,Costa Rica,total,Sanitation,2020,67.71056,3449253.00895,Basic service
+CRI,Costa Rica,total,Sanitation,2020,0.76053,38742.29796,Limited service
+CRI,Costa Rica,total,Sanitation,2020,0.12659,6448.43693,Open defecation
+CRI,Costa Rica,total,Sanitation,2020,30.20444,1538648.39373,Safely managed service
+CRI,Costa Rica,total,Sanitation,2020,1.19789,61021.86223,Unimproved
+CUB,Cuba,total,Sanitation,2020,54.71882,6197790.64605,Basic service
+CUB,Cuba,total,Sanitation,2020,1.66155,188197.02706,Limited service
+CUB,Cuba,total,Sanitation,2020,0.24071,27263.87953,Open defecation
+CUB,Cuba,total,Sanitation,2020,36.63753,4149792.56038,Safely managed service
+CUB,Cuba,total,Sanitation,2020,6.74139,763571.8872,Unimproved
+CYP,Cyprus,total,Sanitation,2020,22.31156,269381.03771,Basic service
+CYP,Cyprus,total,Sanitation,2020,0,0,Limited service
+CYP,Cyprus,total,Sanitation,2020,0,0,Open defecation
+CYP,Cyprus,total,Sanitation,2020,77.0844,930687.03448,Safely managed service
+CYP,Cyprus,total,Sanitation,2020,0.60404,7292.92776,Unimproved
+CZE,Czechia,total,Sanitation,2020,13.92908,1491662.62927,Basic service
+CZE,Czechia,total,Sanitation,2020,0.85676,91749.86135,Limited service
+CZE,Czechia,total,Sanitation,2020,0,0,Open defecation
+CZE,Czechia,total,Sanitation,2020,85.20442,9124525.7547,Safely managed service
+CZE,Czechia,total,Sanitation,2020,0.00975,1043.75479,Unimproved
+DEU,Germany,total,Sanitation,2020,2.10021,1759637.32836,Basic service
+DEU,Germany,total,Sanitation,2020,0.77438,648808.77155,Limited service
+DEU,Germany,total,Sanitation,2020,0,0,Open defecation
+DEU,Germany,total,Sanitation,2020,97.12541,81375499.85309,Safely managed service
+DEU,Germany,total,Sanitation,2020,0,0,Unimproved
+DJI,Djibouti,total,Sanitation,2020,29.64262,292869.67578,Basic service
+DJI,Djibouti,total,Sanitation,2020,7.05251,69678.91722,Limited service
+DJI,Djibouti,total,Sanitation,2020,16.1821,159879.50168,Open defecation
+DJI,Djibouti,total,Sanitation,2020,37.08002,366351.29879,Safely managed service
+DJI,Djibouti,total,Sanitation,2020,10.04275,99222.60652,Unimproved
+DNK,Denmark,total,Sanitation,2020,7.70803,446464.5237,Basic service
+DNK,Denmark,total,Sanitation,2020,0.40277,23329.34766,Limited service
+DNK,Denmark,total,Sanitation,2020,0,0,Open defecation
+DNK,Denmark,total,Sanitation,2020,91.8892,5322409.18964,Safely managed service
+DNK,Denmark,total,Sanitation,2020,0,0,Unimproved
+DOM,Dominican Republic,total,Sanitation,2020,87.17818,9457005.76459,At least basic
+DOM,Dominican Republic,total,Sanitation,2020,9.14087,991593.10784,Limited service
+DOM,Dominican Republic,total,Sanitation,2020,2.25239,244337.42937,Open defecation
+DOM,Dominican Republic,total,Sanitation,2020,1.42855,154968.02321,Unimproved
+DZA,Algeria,total,Sanitation,2020,68.35288,29973451.42706,Basic service
+DZA,Algeria,total,Sanitation,2020,10.50615,4607057.46339,Limited service
+DZA,Algeria,total,Sanitation,2020,0,0,Open defecation
+DZA,Algeria,total,Sanitation,2020,17.61259,7723304.45889,Safely managed service
+DZA,Algeria,total,Sanitation,2020,3.52838,1547230.65153,Unimproved
+ECU,Ecuador,total,Sanitation,2020,49.89298,8802648.68124,Basic service
+ECU,Ecuador,total,Sanitation,2020,7.35305,1297303.77122,Limited service
+ECU,Ecuador,total,Sanitation,2020,0.90508,159683.44541,Open defecation
+ECU,Ecuador,total,Sanitation,2020,41.63194,7345148.24511,Safely managed service
+ECU,Ecuador,total,Sanitation,2020,0.21695,38275.85702,Unimproved
+EGY,Egypt,total,Sanitation,2020,30.26444,30970939.28465,Basic service
+EGY,Egypt,total,Sanitation,2020,1.61652,1654258.99356,Limited service
+EGY,Egypt,total,Sanitation,2020,0,0,Open defecation
+EGY,Egypt,total,Sanitation,2020,67.06103,68626507.97757,Safely managed service
+EGY,Egypt,total,Sanitation,2020,1.058,1082701.7391,Unimproved
+ESP,Spain,total,Sanitation,2020,4.23815,1981536.34614,Basic service
+ESP,Spain,total,Sanitation,2020,0.08088,37812.98116,Limited service
+ESP,Spain,total,Sanitation,2020,0,0,Open defecation
+ESP,Spain,total,Sanitation,2020,95.66522,44728061.80098,Safely managed service
+ESP,Spain,total,Sanitation,2020,0.01576,7368.87126,Unimproved
+EST,Estonia,total,Sanitation,2020,6.08104,80667.37581,Basic service
+EST,Estonia,total,Sanitation,2020,0.69949,9278.9825,Limited service
+EST,Estonia,total,Sanitation,2020,0,0,Open defecation
+EST,Estonia,total,Sanitation,2020,93.06073,1234486.8587,Safely managed service
+EST,Estonia,total,Sanitation,2020,0.15874,2105.78306,Unimproved
+ETH,Ethiopia,total,Sanitation,2020,2.231,2564840.9884,Basic service
+ETH,Ethiopia,total,Sanitation,2020,8.82612,10146824.80905,Limited service
+ETH,Ethiopia,total,Sanitation,2020,16.99518,19538263.60915,Open defecation
+ETH,Ethiopia,total,Sanitation,2020,6.67927,7678733.86199,Safely managed service
+ETH,Ethiopia,total,Sanitation,2020,65.26843,75034920.72681,Unimproved
+FIN,Finland,total,Sanitation,2020,15.34806,850392.94193,Basic service
+FIN,Finland,total,Sanitation,2020,0.552,30584.55758,Limited service
+FIN,Finland,total,Sanitation,2020,0,0,Open defecation
+FIN,Finland,total,Sanitation,2020,84.09986,4659736.16078,Safely managed service
+FIN,Finland,total,Sanitation,2020,0.00008,4.33977,Unimproved
+FJI,Fiji,total,Sanitation,2020,99.16077,888920.81094,At least basic
+FJI,Fiji,total,Sanitation,2020,0.83923,7523.19321,Limited service
+FJI,Fiji,total,Sanitation,2020,0,0,Open defecation
+FJI,Fiji,total,Sanitation,2020,0,0,Unimproved
+FLK,Falkland Islands (Malvinas),total,Sanitation,2020,100,3483,At least basic
+FLK,Falkland Islands (Malvinas),total,Sanitation,2020,0,0,Limited service
+FLK,Falkland Islands (Malvinas),total,Sanitation,2020,0,0,Open defecation
+FLK,Falkland Islands (Malvinas),total,Sanitation,2020,0,0.00006,Unimproved
+FRA,France,total,Sanitation,2020,20.05913,13093298.67986,Basic service
+FRA,France,total,Sanitation,2020,1.35239,882753.57686,Limited service
+FRA,France,total,Sanitation,2020,0,0,Open defecation
+FRA,France,total,Sanitation,2020,78.58848,51297458.76939,Safely managed service
+FRA,France,total,Sanitation,2020,0,0.9791,Unimproved
+GAB,Gabon,total,Sanitation,2020,49.82417,1108950.39874,At least basic
+GAB,Gabon,total,Sanitation,2020,28.89406,643103.10341,Limited service
+GAB,Gabon,total,Sanitation,2020,2.00731,44677.31429,Open defecation
+GAB,Gabon,total,Sanitation,2020,19.27446,428997.15167,Unimproved
+GBR,United Kingdom of Great Britain and Northern Ireland,total,Sanitation,2020,1.0119,686941.07358,Basic service
+GBR,United Kingdom of Great Britain and Northern Ireland,total,Sanitation,2020,0.72048,489103.10305,Limited service
+GBR,United Kingdom of Great Britain and Northern Ireland,total,Sanitation,2020,0,0,Open defecation
+GBR,United Kingdom of Great Britain and Northern Ireland,total,Sanitation,2020,98.09506,66592818.33088,Safely managed service
+GBR,United Kingdom of Great Britain and Northern Ireland,total,Sanitation,2020,0.17256,117145.49318,Unimproved
+GEO,Georgia,total,Sanitation,2020,51.348,2048361.66796,Basic service
+GEO,Georgia,total,Sanitation,2020,0.96683,38568.70912,Limited service
+GEO,Georgia,total,Sanitation,2020,0.0067,267.26703,Open defecation
+GEO,Georgia,total,Sanitation,2020,34.41873,1373023.26078,Safely managed service
+GEO,Georgia,total,Sanitation,2020,13.25974,528954.09512,Unimproved
+GHA,Ghana,total,Sanitation,2020,10.37767,3224648.89203,Basic service
+GHA,Ghana,total,Sanitation,2020,47.4416,14741503.52325,Limited service
+GHA,Ghana,total,Sanitation,2020,17.77812,5524185.33844,Open defecation
+GHA,Ghana,total,Sanitation,2020,13.3248,4140408.21312,Safely managed service
+GHA,Ghana,total,Sanitation,2020,11.0778,3442200.03005,Unimproved
+GIB,Gibraltar,total,Sanitation,2020,100,33691,At least basic
+GIB,Gibraltar,total,Sanitation,2020,0,0,Limited service
+GIB,Gibraltar,total,Sanitation,2020,0,0,Open defecation
+GIB,Gibraltar,total,Sanitation,2020,0,0,Unimproved
+GIN,Guinea,total,Sanitation,2020,29.77614,3910438.55941,At least basic
+GIN,Guinea,total,Sanitation,2020,28.19232,3702438.74295,Limited service
+GIN,Guinea,total,Sanitation,2020,11.8083,1550759.12184,Open defecation
+GIN,Guinea,total,Sanitation,2020,30.22324,3969155.55217,Unimproved
+GLP,Guadeloupe,total,Sanitation,2020,99.69427,398903.71133,At least basic
+GLP,Guadeloupe,total,Sanitation,2020,0,0,Limited service
+GLP,Guadeloupe,total,Sanitation,2020,0,0,Open defecation
+GLP,Guadeloupe,total,Sanitation,2020,0.30573,1223.29242,Unimproved
+GMB,Gambia,total,Sanitation,2020,17.90406,432681.0859,Basic service
+GMB,Gambia,total,Sanitation,2020,13.14546,317681.55499,Limited service
+GMB,Gambia,total,Sanitation,2020,0.10026,2422.86883,Open defecation
+GMB,Gambia,total,Sanitation,2020,28.96716,700038.91256,Safely managed service
+GMB,Gambia,total,Sanitation,2020,39.88306,963839.57777,Unimproved
+GNB,Guinea-Bissau,total,Sanitation,2020,6.06173,119294.74723,Basic service
+GNB,Guinea-Bissau,total,Sanitation,2020,13.59319,267513.7097,Limited service
+GNB,Guinea-Bissau,total,Sanitation,2020,10.32807,203256.16381,Open defecation
+GNB,Guinea-Bissau,total,Sanitation,2020,12.16331,239373.75028,Safely managed service
+GNB,Guinea-Bissau,total,Sanitation,2020,57.8537,1138559.62882,Unimproved
+GRC,Greece,total,Sanitation,2020,7.27504,758281.78976,Basic service
+GRC,Greece,total,Sanitation,2020,1.00625,104882.43971,Limited service
+GRC,Greece,total,Sanitation,2020,0,0,Open defecation
+GRC,Greece,total,Sanitation,2020,91.71871,9559892.01485,Safely managed service
+GRC,Greece,total,Sanitation,2020,0,0,Unimproved
+GRL,Greenland,total,Sanitation,2020,7.70803,4376.00077,Basic service
+GRL,Greenland,total,Sanitation,2020,0.40277,228.65957,Limited service
+GRL,Greenland,total,Sanitation,2020,0,0,Open defecation
+GRL,Greenland,total,Sanitation,2020,91.88921,52167.34062,Safely managed service
+GRL,Greenland,total,Sanitation,2020,0,0,Unimproved
+GTM,Guatemala,total,Sanitation,2020,67.92858,12169789.80492,At least basic
+GTM,Guatemala,total,Sanitation,2020,10.87516,1948346.84184,Limited service
+GTM,Guatemala,total,Sanitation,2020,2.0236,362539.32353,Open defecation
+GTM,Guatemala,total,Sanitation,2020,19.17266,3434890.0582,Unimproved
+GUF,French Guiana,total,Sanitation,2020,92.44514,276116.98415,At least basic
+GUF,French Guiana,total,Sanitation,2020,0,0,Limited service
+GUF,French Guiana,total,Sanitation,2020,0,0,Open defecation
+GUF,French Guiana,total,Sanitation,2020,7.55486,22565.01352,Unimproved
+GUY,Guyana,total,Sanitation,2020,85.78251,674730.04379,At least basic
+GUY,Guyana,total,Sanitation,2020,10.23862,80532.75562,Limited service
+GUY,Guyana,total,Sanitation,2020,0.61014,4799.09897,Open defecation
+GUY,Guyana,total,Sanitation,2020,3.36874,26497.11925,Unimproved
+HKG,"China, Hong Kong Special Administrative Region",total,Sanitation,2020,10.58227,793351.16717,Basic service
+HKG,"China, Hong Kong Special Administrative Region",total,Sanitation,2020,0,0,Limited service
+HKG,"China, Hong Kong Special Administrative Region",total,Sanitation,2020,0,0,Open defecation
+HKG,"China, Hong Kong Special Administrative Region",total,Sanitation,2020,85.92191,6441555.17636,Safely managed service
+HKG,"China, Hong Kong Special Administrative Region",total,Sanitation,2020,3.49583,262081.65655,Unimproved
+HND,Honduras,total,Sanitation,2020,34.10148,3377618.12717,Basic service
+HND,Honduras,total,Sanitation,2020,9.2607,917236.36545,Limited service
+HND,Honduras,total,Sanitation,2020,4.17619,413635.69959,Open defecation
+HND,Honduras,total,Sanitation,2020,49.6751,4920123.78796,Safely managed service
+HND,Honduras,total,Sanitation,2020,2.78652,275994.01992,Unimproved
+HRV,Croatia,total,Sanitation,2020,28.77968,1181483.01694,Basic service
+HRV,Croatia,total,Sanitation,2020,2.45932,100961.69052,Limited service
+HRV,Croatia,total,Sanitation,2020,0,0,Open defecation
+HRV,Croatia,total,Sanitation,2020,67.78555,2782778.69188,Safely managed service
+HRV,Croatia,total,Sanitation,2020,0.97544,40044.60061,Unimproved
+HTI,Haiti,total,Sanitation,2020,37.12173,4232818.04022,At least basic
+HTI,Haiti,total,Sanitation,2020,28.46984,3246283.2397,Limited service
+HTI,Haiti,total,Sanitation,2020,18.13326,2067651.48455,Open defecation
+HTI,Haiti,total,Sanitation,2020,16.27516,1855780.25947,Unimproved
+HUN,Hungary,total,Sanitation,2020,10.20322,985666.47346,Basic service
+HUN,Hungary,total,Sanitation,2020,2.01629,194781.05492,Limited service
+HUN,Hungary,total,Sanitation,2020,0,0,Open defecation
+HUN,Hungary,total,Sanitation,2020,87.78049,8479902.2276,Safely managed service
+HUN,Hungary,total,Sanitation,2020,0,0.24441,Unimproved
+IDN,Indonesia,total,Sanitation,2020,86.46264,236495736.27154,At least basic
+IDN,Indonesia,total,Sanitation,2020,6.07712,16622346.5455,Limited service
+IDN,Indonesia,total,Sanitation,2020,6.10644,16702553.04883,Open defecation
+IDN,Indonesia,total,Sanitation,2020,1.3538,3702971.52087,Unimproved
+IND,India,total,Sanitation,2020,25.35882,349952777.80171,Basic service
+IND,India,total,Sanitation,2020,12.09861,166961341.6335,Limited service
+IND,India,total,Sanitation,2020,14.92693,205992238.07985,Open defecation
+IND,India,total,Sanitation,2020,45.90966,633555292.05036,Safely managed service
+IND,India,total,Sanitation,2020,1.70599,23542702.48978,Unimproved
+IRL,Ireland,total,Sanitation,2020,8.43838,416669.78212,Basic service
+IRL,Ireland,total,Sanitation,2020,6.95223,343286.78845,Limited service
+IRL,Ireland,total,Sanitation,2020,0,0,Open defecation
+IRL,Ireland,total,Sanitation,2020,82.89899,4093382.9772,Safely managed service
+IRL,Ireland,total,Sanitation,2020,1.71041,84456.45208,Unimproved
+IRN,Iran (Islamic Republic of),total,Sanitation,2020,90.26677,75817724.30249,At least basic
+IRN,Iran (Islamic Republic of),total,Sanitation,2020,9.73323,8175226.93569,Limited service
+IRN,Iran (Islamic Republic of),total,Sanitation,2020,0,1.95704,Unimproved
+IRQ,Iraq,total,Sanitation,2020,57.09242,22964000.21028,Basic service
+IRQ,Iraq,total,Sanitation,2020,0,0,Limited service
+IRQ,Iraq,total,Sanitation,2020,0,0,Open defecation
+IRQ,Iraq,total,Sanitation,2020,42.87732,17246331.19702,Safely managed service
+IRQ,Iraq,total,Sanitation,2020,0.03026,12172.59149,Unimproved
+ISL,Iceland,total,Sanitation,2020,15.09298,51504.79899,Basic service
+ISL,Iceland,total,Sanitation,2020,1.21945,4161.38845,Limited service
+ISL,Iceland,total,Sanitation,2020,0,0,Open defecation
+ISL,Iceland,total,Sanitation,2020,83.68756,285583.803,Safely managed service
+ISL,Iceland,total,Sanitation,2020,0,0.00952,Unimproved
+ISR,Israel,total,Sanitation,2020,4.98671,431626.55627,Basic service
+ISR,Israel,total,Sanitation,2020,0,0,Limited service
+ISR,Israel,total,Sanitation,2020,0,0,Open defecation
+ISR,Israel,total,Sanitation,2020,94.96233,8219503.2017,Safely managed service
+ISR,Israel,total,Sanitation,2020,0.05096,4411.24237,Unimproved
+ITA,Italy,total,Sanitation,2020,4.10177,2480002.17786,Basic service
+ITA,Italy,total,Sanitation,2020,0.10063,60843.94857,Limited service
+ITA,Italy,total,Sanitation,2020,0,0,Open defecation
+ITA,Italy,total,Sanitation,2020,95.7834,57912391.57978,Safely managed service
+ITA,Italy,total,Sanitation,2020,0.01421,8590.29499,Unimproved
+JAM,Jamaica,total,Sanitation,2020,86.60642,2564555.6042,At least basic
+JAM,Jamaica,total,Sanitation,2020,12.34263,365485.12846,Limited service
+JAM,Jamaica,total,Sanitation,2020,0.79758,23617.62213,Open defecation
+JAM,Jamaica,total,Sanitation,2020,0.25337,7502.58255,Unimproved
+JOR,Jordan,total,Sanitation,2020,14.81068,1511154.1011,Basic service
+JOR,Jordan,total,Sanitation,2020,1.65557,168919.77279,Limited service
+JOR,Jordan,total,Sanitation,2020,0.10527,10740.53163,Open defecation
+JOR,Jordan,total,Sanitation,2020,82.27368,8394498.69335,Safely managed service
+JOR,Jordan,total,Sanitation,2020,1.15481,117826.90093,Unimproved
+JPN,Japan,total,Sanitation,2020,18.4919,23387905.12924,Basic service
+JPN,Japan,total,Sanitation,2020,0,0,Limited service
+JPN,Japan,total,Sanitation,2020,0,0,Open defecation
+JPN,Japan,total,Sanitation,2020,81.42986,102989608.74438,Safely managed service
+JPN,Japan,total,Sanitation,2020,0.07824,98950.12385,Unimproved
+KAZ,Kazakhstan,total,Sanitation,2020,97.86712,18376223.1326,At least basic
+KAZ,Kazakhstan,total,Sanitation,2020,2.03921,382896.3155,Limited service
+KAZ,Kazakhstan,total,Sanitation,2020,0,0,Open defecation
+KAZ,Kazakhstan,total,Sanitation,2020,0.09367,17588.29579,Unimproved
+KEN,Kenya,total,Sanitation,2020,32.69894,17582647.32347,At least basic
+KEN,Kenya,total,Sanitation,2020,25.46999,13695544.36185,Limited service
+KEN,Kenya,total,Sanitation,2020,8.50634,4573969.47352,Open defecation
+KEN,Kenya,total,Sanitation,2020,33.32473,17919138.4239,Unimproved
+KGZ,Kyrgyzstan,total,Sanitation,2020,5.42246,353771.63999,Basic service
+KGZ,Kyrgyzstan,total,Sanitation,2020,2.10887,137586.83768,Limited service
+KGZ,Kyrgyzstan,total,Sanitation,2020,0,0,Open defecation
+KGZ,Kyrgyzstan,total,Sanitation,2020,92.46858,6032827.03189,Safely managed service
+KGZ,Kyrgyzstan,total,Sanitation,2020,0.00008,5.49036,Unimproved
+KHM,Cambodia,total,Sanitation,2020,68.7693,11497519.72014,At least basic
+KHM,Cambodia,total,Sanitation,2020,8.00189,1337832.88811,Limited service
+KHM,Cambodia,total,Sanitation,2020,19.2792,3223284.34857,Open defecation
+KHM,Cambodia,total,Sanitation,2020,3.94961,660334.43641,Unimproved
+KIR,Kiribati,total,Sanitation,2020,18.91124,22588.71519,Basic service
+KIR,Kiribati,total,Sanitation,2020,16.5308,19745.38139,Limited service
+KIR,Kiribati,total,Sanitation,2020,29.7713,35560.63052,Open defecation
+KIR,Kiribati,total,Sanitation,2020,26.66473,31849.94972,Safely managed service
+KIR,Kiribati,total,Sanitation,2020,8.12193,9701.32319,Unimproved
+KOR,Republic of Korea,total,Sanitation,2020,0,0,Basic service
+KOR,Republic of Korea,total,Sanitation,2020,0,0,Limited service
+KOR,Republic of Korea,total,Sanitation,2020,0,0,Open defecation
+KOR,Republic of Korea,total,Sanitation,2020,99.93749,51237137.47877,Safely managed service
+KOR,Republic of Korea,total,Sanitation,2020,0.06251,32046.5202,Unimproved
+KWT,Kuwait,total,Sanitation,2020,0,0,Basic service
+KWT,Kuwait,total,Sanitation,2020,0,0,Limited service
+KWT,Kuwait,total,Sanitation,2020,0,0,Open defecation
+KWT,Kuwait,total,Sanitation,2020,100,4270563,Safely managed service
+KWT,Kuwait,total,Sanitation,2020,0,0,Unimproved
+LAO,Lao People's Democratic Republic,total,Sanitation,2020,18.09885,1316792.09879,Basic service
+LAO,Lao People's Democratic Republic,total,Sanitation,2020,2.67989,194977.07689,Limited service
+LAO,Lao People's Democratic Republic,total,Sanitation,2020,16.48997,1199737.14361,Open defecation
+LAO,Lao People's Democratic Republic,total,Sanitation,2020,61.38127,4465828.36024,Safely managed service
+LAO,Lao People's Democratic Republic,total,Sanitation,2020,1.35002,98221.3212,Unimproved
+LBN,Lebanon,total,Sanitation,2020,82.91725,5659468.69481,Basic service
+LBN,Lebanon,total,Sanitation,2020,0.8,54603.536,Limited service
+LBN,Lebanon,total,Sanitation,2020,0,0,Open defecation
+LBN,Lebanon,total,Sanitation,2020,16.28275,1111369.76919,Safely managed service
+LBN,Lebanon,total,Sanitation,2020,0,0,Unimproved
+LBR,Liberia,total,Sanitation,2020,18.16357,918654.8191,At least basic
+LBR,Liberia,total,Sanitation,2020,29.33204,1483519.63739,Limited service
+LBR,Liberia,total,Sanitation,2020,37.68303,1905885.7556,Open defecation
+LBR,Liberia,total,Sanitation,2020,14.82137,749616.80157,Unimproved
+LBY,Libya,total,Sanitation,2020,70.48895,4843498.24537,Basic service
+LBY,Libya,total,Sanitation,2020,7.14616,491032.84315,Limited service
+LBY,Libya,total,Sanitation,2020,0.74784,51386.40084,Open defecation
+LBY,Libya,total,Sanitation,2020,21.61705,1485369.5107,Safely managed service
+LBY,Libya,total,Sanitation,2020,0,0,Unimproved
+LCA,Saint Lucia,total,Sanitation,2020,83.36811,153088.02792,At least basic
+LCA,Saint Lucia,total,Sanitation,2020,10.3844,19068.76538,Limited service
+LCA,Saint Lucia,total,Sanitation,2020,6.19966,11384.37925,Open defecation
+LCA,Saint Lucia,total,Sanitation,2020,0.04783,87.83173,Unimproved
+LIE,Liechtenstein,total,Sanitation,2020,1.2,457.644,Basic service
+LIE,Liechtenstein,total,Sanitation,2020,0,0,Limited service
+LIE,Liechtenstein,total,Sanitation,2020,0,0,Open defecation
+LIE,Liechtenstein,total,Sanitation,2020,98.75,37660.2875,Safely managed service
+LIE,Liechtenstein,total,Sanitation,2020,0.05,19.0685,Unimproved
+LKA,Sri Lanka,total,Sanitation,2020,93.65293,20054136.29233,At least basic
+LKA,Sri Lanka,total,Sanitation,2020,3.9747,851111.95503,Limited service
+LKA,Sri Lanka,total,Sanitation,2020,0,0,Open defecation
+LKA,Sri Lanka,total,Sanitation,2020,2.37237,508000.95971,Unimproved
+LSO,Lesotho,total,Sanitation,2020,2.69639,57763.41442,Basic service
+LSO,Lesotho,total,Sanitation,2020,21.10187,452055.15628,Limited service
+LSO,Lesotho,total,Sanitation,2020,21.98574,470990.03798,Open defecation
+LSO,Lesotho,total,Sanitation,2020,47.62169,1020176.56854,Safely managed service
+LSO,Lesotho,total,Sanitation,2020,6.59431,141266.82272,Unimproved
+LTU,Lithuania,total,Sanitation,2020,0,0,Basic service
+LTU,Lithuania,total,Sanitation,2020,2.11256,57509.93294,Limited service
+LTU,Lithuania,total,Sanitation,2020,0,0,Open defecation
+LTU,Lithuania,total,Sanitation,2020,93.93707,2557240.45618,Safely managed service
+LTU,Lithuania,total,Sanitation,2020,3.95037,107540.61094,Unimproved
+LUX,Luxembourg,total,Sanitation,2020,0.8073,5053.5155,Basic service
+LUX,Luxembourg,total,Sanitation,2020,2.38076,14902.99623,Limited service
+LUX,Luxembourg,total,Sanitation,2020,0,0,Open defecation
+LUX,Luxembourg,total,Sanitation,2020,96.78405,605844.89553,Safely managed service
+LUX,Luxembourg,total,Sanitation,2020,0.02789,174.59276,Unimproved
+LVA,Latvia,total,Sanitation,2020,9.01477,170036.73637,Basic service
+LVA,Latvia,total,Sanitation,2020,2.1896,41300.31104,Limited service
+LVA,Latvia,total,Sanitation,2020,0,0,Open defecation
+LVA,Latvia,total,Sanitation,2020,83.4096,1573273.56546,Safely managed service
+LVA,Latvia,total,Sanitation,2020,5.38603,101591.38708,Unimproved
+MAC,"China, Macao Special Administrative Region",total,Sanitation,2020,33.43588,217113.24314,Basic service
+MAC,"China, Macao Special Administrative Region",total,Sanitation,2020,0,0,Limited service
+MAC,"China, Macao Special Administrative Region",total,Sanitation,2020,0,0,Open defecation
+MAC,"China, Macao Special Administrative Region",total,Sanitation,2020,66.56412,432228.75686,Safely managed service
+MAC,"China, Macao Special Administrative Region",total,Sanitation,2020,0,0,Unimproved
+MAF,Saint Martin (French Part),total,Sanitation,2020,100,0,At least basic
+MAF,Saint Martin (French Part),total,Sanitation,2020,0,0,Limited service
+MAF,Saint Martin (French Part),total,Sanitation,2020,0,0,Open defecation
+MAF,Saint Martin (French Part),total,Sanitation,2020,0,0,Unimproved
+MAR,Morocco,total,Sanitation,2020,47.93082,17691534.69838,Basic service
+MAR,Morocco,total,Sanitation,2020,1.53486,566525.73163,Limited service
+MAR,Morocco,total,Sanitation,2020,1.73345,639825.03856,Open defecation
+MAR,Morocco,total,Sanitation,2020,39.31961,14513087.90124,Safely managed service
+MAR,Morocco,total,Sanitation,2020,9.48126,3499586.62908,Unimproved
+MCO,Monaco,total,Sanitation,2020,0,0,Basic service
+MCO,Monaco,total,Sanitation,2020,0,0,Limited service
+MCO,Monaco,total,Sanitation,2020,0,0,Open defecation
+MCO,Monaco,total,Sanitation,2020,100,39244,Safely managed service
+MCO,Monaco,total,Sanitation,2020,0,0,Unimproved
+MDA,Republic of Moldova,total,Sanitation,2020,78.72914,3175904.42784,At least basic
+MDA,Republic of Moldova,total,Sanitation,2020,11.21685,452483.67518,Limited service
+MDA,Republic of Moldova,total,Sanitation,2020,0.13335,5379.38393,Open defecation
+MDA,Republic of Moldova,total,Sanitation,2020,9.92065,400195.54076,Unimproved
+MDG,Madagascar,total,Sanitation,2020,1.93237,535092.08371,Basic service
+MDG,Madagascar,total,Sanitation,2020,20.27188,5613488.96893,Limited service
+MDG,Madagascar,total,Sanitation,2020,42.37673,11734547.68585,Open defecation
+MDG,Madagascar,total,Sanitation,2020,10.37903,2874060.18137,Safely managed service
+MDG,Madagascar,total,Sanitation,2020,25.04,6933831.07848,Unimproved
+MDV,Maldives,total,Sanitation,2020,99.15533,535976.22805,At least basic
+MDV,Maldives,total,Sanitation,2020,0.29839,1612.90782,Limited service
+MDV,Maldives,total,Sanitation,2020,0,0,Open defecation
+MDV,Maldives,total,Sanitation,2020,0.54628,2952.8576,Unimproved
+MEX,Mexico,total,Sanitation,2020,35.08296,45233425.51451,Basic service
+MEX,Mexico,total,Sanitation,2020,6.78721,8750939.70433,Limited service
+MEX,Mexico,total,Sanitation,2020,0.09646,124364.16692,Open defecation
+MEX,Mexico,total,Sanitation,2020,57.3411,73931461.91876,Safely managed service
+MEX,Mexico,total,Sanitation,2020,0.69227,892560.69548,Unimproved
+MHL,Marshall Islands,total,Sanitation,2020,84.15037,49811.96868,At least basic
+MHL,Marshall Islands,total,Sanitation,2020,5.52506,3270.50419,Limited service
+MHL,Marshall Islands,total,Sanitation,2020,9.75429,5773.95203,Open defecation
+MHL,Marshall Islands,total,Sanitation,2020,0.57029,337.57652,Unimproved
+MKD,North Macedonia,total,Sanitation,2020,86.13116,1794439.17674,Basic service
+MKD,North Macedonia,total,Sanitation,2020,0.85226,17755.91154,Limited service
+MKD,North Macedonia,total,Sanitation,2020,0.12812,2669.14895,Open defecation
+MKD,North Macedonia,total,Sanitation,2020,12.19672,254104.07044,Safely managed service
+MKD,North Macedonia,total,Sanitation,2020,0.69174,14411.59241,Unimproved
+MLI,Mali,total,Sanitation,2020,25.46957,5157799.88962,Basic service
+MLI,Mali,total,Sanitation,2020,17.3202,3507485.55192,Limited service
+MLI,Mali,total,Sanitation,2020,4.93614,999610.31529,Open defecation
+MLI,Mali,total,Sanitation,2020,19.92464,4034906.19677,Safely managed service
+MLI,Mali,total,Sanitation,2020,32.34944,6551032.04641,Unimproved
+MLT,Malta,total,Sanitation,2020,8.0965,35749.19073,Basic service
+MLT,Malta,total,Sanitation,2020,0,0,Limited service
+MLT,Malta,total,Sanitation,2020,0,0,Open defecation
+MLT,Malta,total,Sanitation,2020,91.86797,405632.93677,Safely managed service
+MLT,Malta,total,Sanitation,2020,0.03553,156.87249,Unimproved
+MMR,Myanmar,total,Sanitation,2020,12.92346,7031627.77594,Basic service
+MMR,Myanmar,total,Sanitation,2020,11.5874,6304679.79749,Limited service
+MMR,Myanmar,total,Sanitation,2020,6.99607,3806546.99099,Open defecation
+MMR,Myanmar,total,Sanitation,2020,60.71342,33034043.91667,Safely managed service
+MMR,Myanmar,total,Sanitation,2020,7.77965,4232893.52381,Unimproved
+MNE,Montenegro,total,Sanitation,2020,52.33355,328687.15386,Basic service
+MNE,Montenegro,total,Sanitation,2020,0.24836,1559.84995,Limited service
+MNE,Montenegro,total,Sanitation,2020,0.04185,262.81734,Open defecation
+MNE,Montenegro,total,Sanitation,2020,45.43822,285380.19732,Safely managed service
+MNE,Montenegro,total,Sanitation,2020,1.93802,12171.98153,Unimproved
+MNG,Mongolia,total,Sanitation,2020,12.20207,400019.51874,Basic service
+MNG,Mongolia,total,Sanitation,2020,21.07276,690826.48363,Limited service
+MNG,Mongolia,total,Sanitation,2020,8.42187,276093.35297,Open defecation
+MNG,Mongolia,total,Sanitation,2020,55.53872,1820721.42712,Safely managed service
+MNG,Mongolia,total,Sanitation,2020,2.76459,90631.21751,Unimproved
+MNP,Northern Mariana Islands,total,Sanitation,2020,79.11632,45536.97901,At least basic
+MNP,Northern Mariana Islands,total,Sanitation,2020,18.81475,10829.20706,Limited service
+MNP,Northern Mariana Islands,total,Sanitation,2020,0.15963,91.87727,Open defecation
+MNP,Northern Mariana Islands,total,Sanitation,2020,1.9093,1098.93764,Unimproved
+MOZ,Mozambique,total,Sanitation,2020,37.20487,11628543.80664,At least basic
+MOZ,Mozambique,total,Sanitation,2020,4.97057,1553572.97231,Limited service
+MOZ,Mozambique,total,Sanitation,2020,20.74359,6483500.1998,Open defecation
+MOZ,Mozambique,total,Sanitation,2020,37.08097,11589819.1247,Unimproved
+MRT,Mauritania,total,Sanitation,2020,49.83422,2317121.83503,At least basic
+MRT,Mauritania,total,Sanitation,2020,7.64332,355388.6244,Limited service
+MRT,Mauritania,total,Sanitation,2020,30.67497,1426281.65434,Open defecation
+MRT,Mauritania,total,Sanitation,2020,11.84749,550867.79848,Unimproved
+MSR,Montserrat,total,Sanitation,2020,89.09775,4453.99641,At least basic
+MSR,Montserrat,total,Sanitation,2020,10.54896,527.34262,Limited service
+MSR,Montserrat,total,Sanitation,2020,0,0,Open defecation
+MSR,Montserrat,total,Sanitation,2020,0.35329,17.66083,Unimproved
+MTQ,Martinique,total,Sanitation,2020,99.52827,373494.77945,At least basic
+MTQ,Martinique,total,Sanitation,2020,0,0,Limited service
+MTQ,Martinique,total,Sanitation,2020,0,0,Open defecation
+MTQ,Martinique,total,Sanitation,2020,0.47173,1770.22974,Unimproved
+MWI,Malawi,total,Sanitation,2020,2.34333,448278.31339,Basic service
+MWI,Malawi,total,Sanitation,2020,13.48532,2579736.00819,Limited service
+MWI,Malawi,total,Sanitation,2020,4.46366,853897.09233,Open defecation
+MWI,Malawi,total,Sanitation,2020,24.21093,4631540.79183,Safely managed service
+MWI,Malawi,total,Sanitation,2020,55.49675,10616503.7933,Unimproved
+MYT,Mayotte,total,Sanitation,2020,100,272813,At least basic
+MYT,Mayotte,total,Sanitation,2020,0,0,Limited service
+MYT,Mayotte,total,Sanitation,2020,0,0,Open defecation
+MYT,Mayotte,total,Sanitation,2020,0,0,Unimproved
+NAM,Namibia,total,Sanitation,2020,35.25997,895926.16343,At least basic
+NAM,Namibia,total,Sanitation,2020,12.80489,325361.48024,Limited service
+NAM,Namibia,total,Sanitation,2020,47.15931,1198278.45353,Open defecation
+NAM,Namibia,total,Sanitation,2020,4.77583,121349.88112,Unimproved
+NCL,New Caledonia,total,Sanitation,2020,100,285491,At least basic
+NCL,New Caledonia,total,Sanitation,2020,0,0,Limited service
+NCL,New Caledonia,total,Sanitation,2020,0,0,Open defecation
+NCL,New Caledonia,total,Sanitation,2020,0,0,Unimproved
+NER,Niger,total,Sanitation,2020,-1.4361,-347632.16988,Basic service
+NER,Niger,total,Sanitation,2020,10.07798,2439540.42615,Limited service
+NER,Niger,total,Sanitation,2020,68.10619,16486217.92312,Open defecation
+NER,Niger,total,Sanitation,2020,16.18741,3918427.03648,Safely managed service
+NER,Niger,total,Sanitation,2020,7.06452,1710082.78412,Unimproved
+NGA,Nigeria,total,Sanitation,2020,12.21308,25175984.57112,Basic service
+NGA,Nigeria,total,Sanitation,2020,19.538,40275553.89362,Limited service
+NGA,Nigeria,total,Sanitation,2020,18.6625,38470798.87151,Open defecation
+NGA,Nigeria,total,Sanitation,2020,30.50949,62892132.64982,Safely managed service
+NGA,Nigeria,total,Sanitation,2020,19.07694,39325130.03455,Unimproved
+NIC,Nicaragua,total,Sanitation,2020,73.0211,4837321.88822,At least basic
+NIC,Nicaragua,total,Sanitation,2020,7.2444,479909.4015,Limited service
+NIC,Nicaragua,total,Sanitation,2020,6.79177,449924.64934,Open defecation
+NIC,Nicaragua,total,Sanitation,2020,12.94273,857397.916,Unimproved
+NIU,Niue,total,Sanitation,2020,95.54188,1545.86758,At least basic
+NIU,Niue,total,Sanitation,2020,0,0,Limited service
+NIU,Niue,total,Sanitation,2020,0,0,Open defecation
+NIU,Niue,total,Sanitation,2020,4.45812,72.13238,Unimproved
+NLD,Netherlands,total,Sanitation,2020,0.18871,32335.16898,Basic service
+NLD,Netherlands,total,Sanitation,2020,2.31367,396444.64678,Limited service
+NLD,Netherlands,total,Sanitation,2020,0,0,Open defecation
+NLD,Netherlands,total,Sanitation,2020,97.49706,16705998.58176,Safely managed service
+NLD,Netherlands,total,Sanitation,2020,0.00056,95.6018,Unimproved
+NOR,Norway,total,Sanitation,2020,32.66294,1770736.78318,Basic service
+NOR,Norway,total,Sanitation,2020,1.94892,105655.77297,Limited service
+NOR,Norway,total,Sanitation,2020,0,0,Open defecation
+NOR,Norway,total,Sanitation,2020,65.38814,3544849.19973,Safely managed service
+NOR,Norway,total,Sanitation,2020,0,0.24396,Unimproved
+NPL,Nepal,total,Sanitation,2020,27.97038,8149675.04045,Basic service
+NPL,Nepal,total,Sanitation,2020,11.05263,3220384.41536,Limited service
+NPL,Nepal,total,Sanitation,2020,9.78259,2850333.83987,Open defecation
+NPL,Nepal,total,Sanitation,2020,48.64084,14172387.15808,Safely managed service
+NPL,Nepal,total,Sanitation,2020,2.55357,744027.54769,Unimproved
+NZL,New Zealand,total,Sanitation,2020,17.80909,858795.9664,Basic service
+NZL,New Zealand,total,Sanitation,2020,0,0,Limited service
+NZL,New Zealand,total,Sanitation,2020,0,0,Open defecation
+NZL,New Zealand,total,Sanitation,2020,82.19091,3963437.09484,Safely managed service
+NZL,New Zealand,total,Sanitation,2020,0,0,Unimproved
+OMN,Oman,total,Sanitation,2020,99.32024,5071909.42239,At least basic
+OMN,Oman,total,Sanitation,2020,0.67975,34712.41844,Limited service
+OMN,Oman,total,Sanitation,2020,0,0,Open defecation
+OMN,Oman,total,Sanitation,2020,0,0.2441,Unimproved
+PAK,Pakistan,total,Sanitation,2020,68.39731,151084412.17544,At least basic
+PAK,Pakistan,total,Sanitation,2020,10.53311,23266827.96118,Limited service
+PAK,Pakistan,total,Sanitation,2020,7.30336,16132561.77713,Open defecation
+PAK,Pakistan,total,Sanitation,2020,13.76622,30408527.91895,Unimproved
+PAN,Panama,total,Sanitation,2020,84.57385,3649165.52576,At least basic
+PAN,Panama,total,Sanitation,2020,2.58119,111372.25059,Limited service
+PAN,Panama,total,Sanitation,2020,4.19323,180928.09443,Open defecation
+PAN,Panama,total,Sanitation,2020,8.65173,373302.22898,Unimproved
+PER,Peru,total,Sanitation,2020,25.76708,8495883.68808,Basic service
+PER,Peru,total,Sanitation,2020,8.857,2920317.10293,Limited service
+PER,Peru,total,Sanitation,2020,4.39777,1450026.32664,Open defecation
+PER,Peru,total,Sanitation,2020,52.80962,17412307.09504,Safely managed service
+PER,Peru,total,Sanitation,2020,8.16853,2693313.78895,Unimproved
+PHL,Philippines,total,Sanitation,2020,21.61798,23689212.94276,Basic service
+PHL,Philippines,total,Sanitation,2020,11.12126,12186802.80283,Limited service
+PHL,Philippines,total,Sanitation,2020,3.78633,4149099.7453,Open defecation
+PHL,Philippines,total,Sanitation,2020,60.63807,66447859.20419,Safely managed service
+PHL,Philippines,total,Sanitation,2020,2.83636,3108113.31259,Unimproved
+PLW,Palau,total,Sanitation,2020,99.62328,18023.84305,At least basic
+PLW,Palau,total,Sanitation,2020,0,0,Limited service
+PLW,Palau,total,Sanitation,2020,0,0,Open defecation
+PLW,Palau,total,Sanitation,2020,0.37673,68.15717,Unimproved
+PNG,Papua New Guinea,total,Sanitation,2020,19.22383,1719961.5361,At least basic
+PNG,Papua New Guinea,total,Sanitation,2020,4.27509,382493.04385,Limited service
+PNG,Papua New Guinea,total,Sanitation,2020,16.13159,1443297.83898,Open defecation
+PNG,Papua New Guinea,total,Sanitation,2020,60.36949,5401274.57006,Unimproved
+POL,Poland,total,Sanitation,2020,9.45804,3579546.70539,Basic service
+POL,Poland,total,Sanitation,2020,0,0,Limited service
+POL,Poland,total,Sanitation,2020,0,0,Open defecation
+POL,Poland,total,Sanitation,2020,90.54196,34267058.26991,Safely managed service
+POL,Poland,total,Sanitation,2020,0,0,Unimproved
+PRI,Puerto Rico,total,Sanitation,2020,67.49084,1930804.92188,Basic service
+PRI,Puerto Rico,total,Sanitation,2020,0,0,Limited service
+PRI,Puerto Rico,total,Sanitation,2020,0,0,Open defecation
+PRI,Puerto Rico,total,Sanitation,2020,32.50916,930035.07812,Safely managed service
+PRI,Puerto Rico,total,Sanitation,2020,0,0,Unimproved
+PRK,Democratic People's Republic of Korea,total,Sanitation,2020,84.66547,21825753.08229,At least basic
+PRK,Democratic People's Republic of Korea,total,Sanitation,2020,0.62757,161781.08983,Limited service
+PRK,Democratic People's Republic of Korea,total,Sanitation,2020,0,0,Open defecation
+PRK,Democratic People's Republic of Korea,total,Sanitation,2020,14.70696,3791280.54144,Unimproved
+PRT,Portugal,total,Sanitation,2020,14.52279,1480846.0009,Basic service
+PRT,Portugal,total,Sanitation,2020,0.33637,34299.17195,Limited service
+PRT,Portugal,total,Sanitation,2020,0,0,Open defecation
+PRT,Portugal,total,Sanitation,2020,85.08136,8675496.93983,Safely managed service
+PRT,Portugal,total,Sanitation,2020,0.05948,6064.88702,Unimproved
+PRY,Paraguay,total,Sanitation,2020,32.59461,2324820.59055,Basic service
+PRY,Paraguay,total,Sanitation,2020,3.46613,247222.77436,Limited service
+PRY,Paraguay,total,Sanitation,2020,0.34329,24484.95076,Open defecation
+PRY,Paraguay,total,Sanitation,2020,60.12617,4288517.24434,Safely managed service
+PRY,Paraguay,total,Sanitation,2020,3.4698,247484.43985,Unimproved
+PSE,State of Palestine,total,Sanitation,2020,31.88474,1626573.41208,Basic service
+PSE,State of Palestine,total,Sanitation,2020,1.04521,53320.70382,Limited service
+PSE,State of Palestine,total,Sanitation,2020,0.14072,7178.60995,Open defecation
+PSE,State of Palestine,total,Sanitation,2020,66.69318,3402296.68245,Safely managed service
+PSE,State of Palestine,total,Sanitation,2020,0.23614,12046.59199,Unimproved
+PYF,French Polynesia,total,Sanitation,2020,97.00338,272486.37405,At least basic
+PYF,French Polynesia,total,Sanitation,2020,0,0,Limited service
+PYF,French Polynesia,total,Sanitation,2020,0,0,Open defecation
+PYF,French Polynesia,total,Sanitation,2020,2.99662,8417.62241,Unimproved
+QAT,Qatar,total,Sanitation,2020,2.8,80669.68,Basic service
+QAT,Qatar,total,Sanitation,2020,0,0,Limited service
+QAT,Qatar,total,Sanitation,2020,0,0,Open defecation
+QAT,Qatar,total,Sanitation,2020,97.2,2800390.32,Safely managed service
+QAT,Qatar,total,Sanitation,2020,0,0,Unimproved
+REU,Réunion,total,Sanitation,2020,99.54401,891225.52068,At least basic
+REU,Réunion,total,Sanitation,2020,0,0,Limited service
+REU,Réunion,total,Sanitation,2020,0,0,Open defecation
+REU,Réunion,total,Sanitation,2020,0.45599,4082.50865,Unimproved
+ROU,Romania,total,Sanitation,2020,3.9254,755155.2582,Basic service
+ROU,Romania,total,Sanitation,2020,0.25858,49744.29159,Limited service
+ROU,Romania,total,Sanitation,2020,0,0,Open defecation
+ROU,Romania,total,Sanitation,2020,83.14105,15994410.5469,Safely managed service
+ROU,Romania,total,Sanitation,2020,12.67498,2438371.9035,Unimproved
+RUS,Russian Federation,total,Sanitation,2020,28.57331,41698302.76379,Basic service
+RUS,Russian Federation,total,Sanitation,2020,0,0,Limited service
+RUS,Russian Federation,total,Sanitation,2020,0,0,Open defecation
+RUS,Russian Federation,total,Sanitation,2020,60.81737,88753487.69589,Safely managed service
+RUS,Russian Federation,total,Sanitation,2020,10.60932,15482657.54032,Unimproved
+RWA,Rwanda,total,Sanitation,2020,68.83344,8915451.3591,At least basic
+RWA,Rwanda,total,Sanitation,2020,15.38727,1992991.08744,Limited service
+RWA,Rwanda,total,Sanitation,2020,1.9665,254704.9097,Open defecation
+RWA,Rwanda,total,Sanitation,2020,13.81279,1789061.67433,Unimproved
+SAU,Saudi Arabia,total,Sanitation,2020,40.88642,14234145.89364,Basic service
+SAU,Saudi Arabia,total,Sanitation,2020,0,0,Limited service
+SAU,Saudi Arabia,total,Sanitation,2020,0,0,Open defecation
+SAU,Saudi Arabia,total,Sanitation,2020,59.11358,20579722.10636,Safely managed service
+SAU,Saudi Arabia,total,Sanitation,2020,0,0,Unimproved
+SDN,Sudan,total,Sanitation,2020,36.89208,16176907.99904,At least basic
+SDN,Sudan,total,Sanitation,2020,8.36865,3669591.93881,Limited service
+SDN,Sudan,total,Sanitation,2020,24.00786,10527271.62229,Open defecation
+SDN,Sudan,total,Sanitation,2020,30.7314,13475496.13423,Unimproved
+SEN,Senegal,total,Sanitation,2020,32.65272,5467348.87459,Basic service
+SEN,Senegal,total,Sanitation,2020,17.294,2895695.08006,Limited service
+SEN,Senegal,total,Sanitation,2020,11.25308,1884207.89832,Open defecation
+SEN,Senegal,total,Sanitation,2020,24.12374,4039261.86438,Safely managed service
+SEN,Senegal,total,Sanitation,2020,14.67646,2457416.28097,Unimproved
+SGP,Singapore,total,Sanitation,2020,0,0,Basic service
+SGP,Singapore,total,Sanitation,2020,0,0,Limited service
+SGP,Singapore,total,Sanitation,2020,0,0,Open defecation
+SGP,Singapore,total,Sanitation,2020,100,5850343,Safely managed service
+SGP,Singapore,total,Sanitation,2020,0,0,Unimproved
+SHN,Saint Helena,total,Sanitation,2020,100,6071,At least basic
+SHN,Saint Helena,total,Sanitation,2020,0,0,Limited service
+SHN,Saint Helena,total,Sanitation,2020,0,0,Open defecation
+SHN,Saint Helena,total,Sanitation,2020,0,0,Unimproved
+SLB,Solomon Islands,total,Sanitation,2020,34.75592,238730.79716,At least basic
+SLB,Solomon Islands,total,Sanitation,2020,5.85761,40234.61024,Limited service
+SLB,Solomon Islands,total,Sanitation,2020,44.79095,307659.15036,Open defecation
+SLB,Solomon Islands,total,Sanitation,2020,14.59552,100253.43359,Unimproved
+SLE,Sierra Leone,total,Sanitation,2020,2.45973,196212.06516,Basic service
+SLE,Sierra Leone,total,Sanitation,2020,37.91755,3024677.05012,Limited service
+SLE,Sierra Leone,total,Sanitation,2020,16.39085,1307495.31164,Open defecation
+SLE,Sierra Leone,total,Sanitation,2020,14.04995,1120762.32504,Safely managed service
+SLE,Sierra Leone,total,Sanitation,2020,29.18193,2327838.24821,Unimproved
+SLV,El Salvador,total,Sanitation,2020,82.44975,5347856.69126,At least basic
+SLV,El Salvador,total,Sanitation,2020,16.78453,1088678.61345,Limited service
+SLV,El Salvador,total,Sanitation,2020,0.29738,19288.98398,Open defecation
+SLV,El Salvador,total,Sanitation,2020,0.46833,30376.72895,Unimproved
+SMR,San Marino,total,Sanitation,2020,29.6285,10055.32033,Basic service
+SMR,San Marino,total,Sanitation,2020,0,0,Limited service
+SMR,San Marino,total,Sanitation,2020,0,0,Open defecation
+SMR,San Marino,total,Sanitation,2020,70.3715,23882.67967,Safely managed service
+SMR,San Marino,total,Sanitation,2020,0,0,Unimproved
+SOM,Somalia,total,Sanitation,2020,7.78707,1237616.61691,Basic service
+SOM,Somalia,total,Sanitation,2020,16.92125,2689331.18336,Limited service
+SOM,Somalia,total,Sanitation,2020,23.12103,3674675.7025,Open defecation
+SOM,Somalia,total,Sanitation,2020,31.51954,5009470.00633,Safely managed service
+SOM,Somalia,total,Sanitation,2020,20.65111,3282125.49297,Unimproved
+SPM,Saint Pierre and Miquelon,total,Sanitation,2020,99.96215,5792.80663,At least basic
+SPM,Saint Pierre and Miquelon,total,Sanitation,2020,0,0,Limited service
+SPM,Saint Pierre and Miquelon,total,Sanitation,2020,0,0,Open defecation
+SPM,Saint Pierre and Miquelon,total,Sanitation,2020,0.03785,2.19342,Unimproved
+SRB,Serbia,total,Sanitation,2020,79.54482,6950125.31874,Basic service
+SRB,Serbia,total,Sanitation,2020,0,0,Limited service
+SRB,Serbia,total,Sanitation,2020,0.03169,2768.96569,Open defecation
+SRB,Serbia,total,Sanitation,2020,18.35384,1603643.24203,Safely managed service
+SRB,Serbia,total,Sanitation,2020,2.06964,180832.4738,Unimproved
+SSD,South Sudan,total,Sanitation,2020,15.84482,1773625.89344,At least basic
+SSD,South Sudan,total,Sanitation,2020,8.73196,977431.546,Limited service
+SSD,South Sudan,total,Sanitation,2020,60.1272,6730475.27703,Open defecation
+SSD,South Sudan,total,Sanitation,2020,15.29603,1712196.26237,Unimproved
+STP,Sao Tome and Principe,total,Sanitation,2020,12.96105,28405.57744,Basic service
+STP,Sao Tome and Principe,total,Sanitation,2020,5.80383,12719.73028,Limited service
+STP,Sao Tome and Principe,total,Sanitation,2020,42.6254,93418.25392,Open defecation
+STP,Sao Tome and Principe,total,Sanitation,2020,34.66002,75961.25246,Safely managed service
+STP,Sao Tome and Principe,total,Sanitation,2020,3.94969,8656.18591,Unimproved
+SUR,Suriname,total,Sanitation,2020,64.77361,379984.01354,Basic service
+SUR,Suriname,total,Sanitation,2020,6.08719,35709.55481,Limited service
+SUR,Suriname,total,Sanitation,2020,1.21956,7154.36558,Open defecation
+SUR,Suriname,total,Sanitation,2020,25.1806,147717.97514,Safely managed service
+SUR,Suriname,total,Sanitation,2020,2.73903,16068.09096,Unimproved
+SVK,Slovakia,total,Sanitation,2020,15.59764,851575.63295,Basic service
+SVK,Slovakia,total,Sanitation,2020,2.42138,132198.84109,Limited service
+SVK,Slovakia,total,Sanitation,2020,0,0,Open defecation
+SVK,Slovakia,total,Sanitation,2020,81.93498,4473357.52624,Safely managed service
+SVK,Slovakia,total,Sanitation,2020,0.04599,2510.99999,Unimproved
+SVN,Slovenia,total,Sanitation,2020,26.5516,551989.66614,Basic service
+SVN,Slovenia,total,Sanitation,2020,0.87926,18279.12376,Limited service
+SVN,Slovenia,total,Sanitation,2020,0,0,Open defecation
+SVN,Slovenia,total,Sanitation,2020,71.5482,1487438.28362,Safely managed service
+SVN,Slovenia,total,Sanitation,2020,1.02095,21224.82648,Unimproved
+SWE,Sweden,total,Sanitation,2020,4.35506,439829.54135,Basic service
+SWE,Sweden,total,Sanitation,2020,0.70182,70878.52695,Limited service
+SWE,Sweden,total,Sanitation,2020,0,0,Open defecation
+SWE,Sweden,total,Sanitation,2020,94.93116,9587354.4039,Safely managed service
+SWE,Sweden,total,Sanitation,2020,0.01196,1207.5278,Unimproved
+SWZ,Eswatini,total,Sanitation,2020,64.29218,745894.67253,At least basic
+SWZ,Eswatini,total,Sanitation,2020,21.63243,250971.6747,Limited service
+SWZ,Eswatini,total,Sanitation,2020,3.81401,44248.82715,Open defecation
+SWZ,Eswatini,total,Sanitation,2020,10.26138,119048.83388,Unimproved
+SYC,Seychelles,total,Sanitation,2020,100,98340,At least basic
+SYC,Seychelles,total,Sanitation,2020,0,0,Limited service
+SYC,Seychelles,total,Sanitation,2020,0,0,Open defecation
+SYC,Seychelles,total,Sanitation,2020,0,0,Unimproved
+SYR,Syrian Arab Republic,total,Sanitation,2020,89.69348,15696947.64299,At least basic
+SYR,Syrian Arab Republic,total,Sanitation,2020,9.80521,1715976.53594,Limited service
+SYR,Syrian Arab Republic,total,Sanitation,2020,0.50131,87732.13503,Unimproved
+TCD,Chad,total,Sanitation,2020,1.92658,316457.89662,Basic service
+TCD,Chad,total,Sanitation,2020,5.23465,859835.96681,Limited service
+TCD,Chad,total,Sanitation,2020,64.07332,10524593.59568,Open defecation
+TCD,Chad,total,Sanitation,2020,10.13712,1665108.642,Safely managed service
+TCD,Chad,total,Sanitation,2020,18.62833,3059862.89791,Unimproved
+TGO,Togo,total,Sanitation,2020,9.46902,783915.05878,Basic service
+TGO,Togo,total,Sanitation,2020,26.89599,2226648.57818,Limited service
+TGO,Togo,total,Sanitation,2020,45.15002,3737851.35386,Open defecation
+TGO,Togo,total,Sanitation,2020,9.13418,756194.8753,Safely managed service
+TGO,Togo,total,Sanitation,2020,9.35079,774127.6333,Unimproved
+THA,Thailand,total,Sanitation,2020,72.78078,50800969.70179,Basic service
+THA,Thailand,total,Sanitation,2020,1.25305,874628.10439,Limited service
+THA,Thailand,total,Sanitation,2020,0,0,Open defecation
+THA,Thailand,total,Sanitation,2020,25.93234,18100763.75282,Safely managed service
+THA,Thailand,total,Sanitation,2020,0.03383,23614.441,Unimproved
+TJK,Tajikistan,total,Sanitation,2020,96.76531,9229129.05686,At least basic
+TJK,Tajikistan,total,Sanitation,2020,2.60213,248181.9484,Limited service
+TJK,Tajikistan,total,Sanitation,2020,0,0,Open defecation
+TJK,Tajikistan,total,Sanitation,2020,0.63255,60330.77871,Unimproved
+TKL,Tokelau,total,Sanitation,2020,96.80265,1306.83578,At least basic
+TKL,Tokelau,total,Sanitation,2020,3.19735,43.16425,Limited service
+TKL,Tokelau,total,Sanitation,2020,0,0,Open defecation
+TKL,Tokelau,total,Sanitation,2020,0,0,Unimproved
+TKM,Turkmenistan,total,Sanitation,2020,99.41113,5995671.31859,At least basic
+TKM,Turkmenistan,total,Sanitation,2020,0.40933,24687.72577,Limited service
+TKM,Turkmenistan,total,Sanitation,2020,0,0,Open defecation
+TKM,Turkmenistan,total,Sanitation,2020,0.17953,10827.88821,Unimproved
+TLS,Timor-Leste,total,Sanitation,2020,56.76669,748435.92411,At least basic
+TLS,Timor-Leste,total,Sanitation,2020,9.56085,126054.23635,Limited service
+TLS,Timor-Leste,total,Sanitation,2020,18.21606,240168.16139,Open defecation
+TLS,Timor-Leste,total,Sanitation,2020,15.4564,203783.65927,Unimproved
+TON,Tonga,total,Sanitation,2020,59.09485,62461.48421,Basic service
+TON,Tonga,total,Sanitation,2020,6.0344,6378.17818,Limited service
+TON,Tonga,total,Sanitation,2020,0.0169,17.86579,Open defecation
+TON,Tonga,total,Sanitation,2020,33.79848,35723.9813,Safely managed service
+TON,Tonga,total,Sanitation,2020,1.05537,1115.49052,Unimproved
+TTO,Trinidad and Tobago,total,Sanitation,2020,93.91521,1314334.97512,At least basic
+TTO,Trinidad and Tobago,total,Sanitation,2020,5.93669,83083.43209,Limited service
+TTO,Trinidad and Tobago,total,Sanitation,2020,0,0,Open defecation
+TTO,Trinidad and Tobago,total,Sanitation,2020,0.1481,2072.64217,Unimproved
+TUN,Tunisia,total,Sanitation,2020,16.67744,1971042.46485,Basic service
+TUN,Tunisia,total,Sanitation,2020,1.53352,181240.28278,Limited service
+TUN,Tunisia,total,Sanitation,2020,0,0,Open defecation
+TUN,Tunisia,total,Sanitation,2020,80.75702,9544364.03172,Safely managed service
+TUN,Tunisia,total,Sanitation,2020,1.03203,121971.22029,Unimproved
+TUR,Turkey,total,Sanitation,2020,20.79652,17539590.29795,Basic service
+TUR,Turkey,total,Sanitation,2020,0.34875,294128.95533,Limited service
+TUR,Turkey,total,Sanitation,2020,0.15295,128997.38064,Open defecation
+TUR,Turkey,total,Sanitation,2020,78.42843,66145808.60397,Safely managed service
+TUR,Turkey,total,Sanitation,2020,0.27336,230546.76379,Unimproved
+TZA,United Republic of Tanzania,total,Sanitation,2020,5.43224,3244908.5235,Basic service
+TZA,United Republic of Tanzania,total,Sanitation,2020,18.66387,11148715.16534,Limited service
+TZA,United Republic of Tanzania,total,Sanitation,2020,10.89485,6507953.66794,Open defecation
+TZA,United Republic of Tanzania,total,Sanitation,2020,26.32853,15727141.89973,Safely managed service
+TZA,United Republic of Tanzania,total,Sanitation,2020,38.68051,23105496.74708,Unimproved
+UGA,Uganda,total,Sanitation,2020,19.78964,9051977.68178,At least basic
+UGA,Uganda,total,Sanitation,2020,17.62246,8060690.40746,Limited service
+UGA,Uganda,total,Sanitation,2020,4.67596,2138829.06186,Open defecation
+UGA,Uganda,total,Sanitation,2020,57.91194,26489502.60236,Unimproved
+UKR,Ukraine,total,Sanitation,2020,25.7789,11274079.72542,Basic service
+UKR,Ukraine,total,Sanitation,2020,2.25728,987194.38055,Limited service
+UKR,Ukraine,total,Sanitation,2020,0,0,Open defecation
+UKR,Ukraine,total,Sanitation,2020,71.96382,31472481.89316,Safely managed service
+UKR,Ukraine,total,Sanitation,2020,0,0,Unimproved
+URY,Uruguay,total,Sanitation,2020,98.05453,3406146.58885,At least basic
+URY,Uruguay,total,Sanitation,2020,1.18852,41286.01938,Limited service
+URY,Uruguay,total,Sanitation,2020,0.2142,7440.55333,Open defecation
+URY,Uruguay,total,Sanitation,2020,0.54275,18853.76713,Unimproved
+USA,United States of America,total,Sanitation,2020,1.41597,4686904.76603,Basic service
+USA,United States of America,total,Sanitation,2020,0,0,Limited service
+USA,United States of America,total,Sanitation,2020,0,0,Open defecation
+USA,United States of America,total,Sanitation,2020,98.26365,325255282.54477,Safely managed service
+USA,United States of America,total,Sanitation,2020,0.32038,1060468.6892,Unimproved
+UZB,Uzbekistan,total,Sanitation,2020,100,33469200,At least basic
+UZB,Uzbekistan,total,Sanitation,2020,0,0,Limited service
+UZB,Uzbekistan,total,Sanitation,2020,0,0,Open defecation
+UZB,Uzbekistan,total,Sanitation,2020,0,0,Unimproved
+VEN,Venezuela (Bolivarian Republic of),total,Sanitation,2020,72.69298,20670935.31791,Basic service
+VEN,Venezuela (Bolivarian Republic of),total,Sanitation,2020,0,0,Limited service
+VEN,Venezuela (Bolivarian Republic of),total,Sanitation,2020,3.02385,859859.28573,Open defecation
+VEN,Venezuela (Bolivarian Republic of),total,Sanitation,2020,23.06659,6559202.50421,Safely managed service
+VEN,Venezuela (Bolivarian Republic of),total,Sanitation,2020,1.21658,345946.89244,Unimproved
+VIR,United States Virgin Islands,total,Sanitation,2020,99.37128,103766.46844,At least basic
+VIR,United States Virgin Islands,total,Sanitation,2020,0,0,Limited service
+VIR,United States Virgin Islands,total,Sanitation,2020,0,0,Open defecation
+VIR,United States Virgin Islands,total,Sanitation,2020,0.62872,656.53086,Unimproved
+VNM,Viet Nam,total,Sanitation,2020,89.24648,86871255.24906,At least basic
+VNM,Viet Nam,total,Sanitation,2020,4.00705,3900407.64385,Limited service
+VNM,Viet Nam,total,Sanitation,2020,2.93347,2855401.8307,Open defecation
+VNM,Viet Nam,total,Sanitation,2020,3.813,3711517.4143,Unimproved
+VUT,Vanuatu,total,Sanitation,2020,52.70705,161889.69336,At least basic
+VUT,Vanuatu,total,Sanitation,2020,15.53142,47704.75659,Limited service
+VUT,Vanuatu,total,Sanitation,2020,0.30201,927.63216,Open defecation
+VUT,Vanuatu,total,Sanitation,2020,31.45952,96627.92308,Unimproved
+WLF,Wallis and Futuna Islands,total,Sanitation,2020,92.94722,10452.84434,At least basic
+WLF,Wallis and Futuna Islands,total,Sanitation,2020,0,0,Limited service
+WLF,Wallis and Futuna Islands,total,Sanitation,2020,7.05278,793.15573,Open defecation
+WLF,Wallis and Futuna Islands,total,Sanitation,2020,0,0,Unimproved
+WSM,Samoa,total,Sanitation,2020,49.04443,97309.04723,Basic service
+WSM,Samoa,total,Sanitation,2020,2.6977,5352.49694,Limited service
+WSM,Samoa,total,Sanitation,2020,0.14551,288.71128,Open defecation
+WSM,Samoa,total,Sanitation,2020,47.72144,94684.10289,Safely managed service
+WSM,Samoa,total,Sanitation,2020,0.39093,775.64165,Unimproved
+YEM,Yemen,total,Sanitation,2020,35.27866,10522201.06994,Basic service
+YEM,Yemen,total,Sanitation,2020,4.97562,1484026.51613,Limited service
+YEM,Yemen,total,Sanitation,2020,9.73353,2903118.34854,Open defecation
+YEM,Yemen,total,Sanitation,2020,18.83798,5618609.47803,Safely managed service
+YEM,Yemen,total,Sanitation,2020,31.17422,9298012.58617,Unimproved
+ZAF,South Africa,total,Sanitation,2020,78.47461,46542264.37539,At least basic
+ZAF,South Africa,total,Sanitation,2020,14.76347,8756020.68985,Limited service
+ZAF,South Africa,total,Sanitation,2020,0.22416,132946.3717,Open defecation
+ZAF,South Africa,total,Sanitation,2020,6.53776,3877459.77129,Unimproved
+ZMB,Zambia,total,Sanitation,2020,31.89963,5864414.57026,At least basic
+ZMB,Zambia,total,Sanitation,2020,19.796,3639287.36537,Limited service
+ZMB,Zambia,total,Sanitation,2020,11.25346,2068831.01171,Open defecation
+ZMB,Zambia,total,Sanitation,2020,37.05091,6811423.21077,Unimproved
+ZWE,Zimbabwe,total,Sanitation,2020,9.54177,1418187.00311,Basic service
+ZWE,Zimbabwe,total,Sanitation,2020,30.23473,4493765.85746,Limited service
+ZWE,Zimbabwe,total,Sanitation,2020,23.49863,3492584.4726,Open defecation
+ZWE,Zimbabwe,total,Sanitation,2020,25.65059,3812428.19478,Safely managed service
+ZWE,Zimbabwe,total,Sanitation,2020,11.07428,1645961.47145,Unimproved
