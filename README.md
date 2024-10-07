@@ -47,12 +47,12 @@ V. Collating the results
 # File structure, output, and dependencies
 
 ## Directory `./A_incidence_code/`
-The file to re-fit the parameters of the analysis for a model that now contains wealth quintiles. For the explanation of choices made here, see the supplement. The analysis is an expansion of the paper by Bilcke et al [here](https://doi.org/10.1016/s1473-3099(18)30804-1).  
+These are the file to re-fit the parameters of the analysis for a model that now contains wealth quintiles. For the explanation of choices made here, see the supplement. The analysis is an expansion of the paper by Bilcke et al [here](https://doi.org/10.1016/s1473-3099(18)30804-1).  
 
 The analysis is called by the file `run_code_r_A_incidence.sh` and is meant to run with a slurm scheduler. This portion of the analysis can take up to 2 hours or more.
 
 ## Directory `./B_vax_sims_code/`
-The files to simulate the vaccine interventions. First to simulate the impact of TCV-N&S in the 2020's and then to simulate additional benefits of rolling out TCV-MAPs after 2032. One file is to simulate the impact for each country of the global analysis (`code_vax_sims_global.R`) and the other is toe simulate the impact for each region or district in the five countries for which we perform subnational analysis (`code_vax_sims_dd.R` in Burkina Faso, India, Kenya, Malawi, and Nepal).
+These are the files to simulate the vaccine interventions. First to simulate the impact of TCV-N&S in the 2020's and then to simulate additional benefits of rolling out TCV-MAPs after 2032. One file is to simulate the impact for each country of the global analysis (`code_vax_sims_global.R`) and the other is toe simulate the impact for each region or district in the five countries for which we perform subnational analysis (`code_vax_sims_dd.R` in Burkina Faso, India, Kenya, Malawi, and Nepal).
 
 The analysis is called by the files `run_code_r_Ba_vaxsims.sh`, `run_code_r_Ba_vaxsims_dd_reg.sh`, and `run_code_r_Ba_vaxsims_districts.sh` and is meant to run with a slurm scheduler. This portion of the analysis takes about 30 minutes to run.
 
@@ -83,14 +83,14 @@ This directory contains the necessary files to replicate the package environment
 - `run_code_Ca_cea.sh`, `run_code_Cb_cea_dd_reg.sh`, `run_code_Cc_cea_dd_dist.sh` run the cost-effectiveness analysis at the global level, the subnational analysis at the region level, and the subnational analysis at the district level. The `.sh` files call the files `./C_cea_code/code00_master_cluster.R` and `./C_cea_code/code00_master_cluster_dd.sh` for the global and subnational analyses, respectively, and those call the rest of the files in the `./C_cea_code/` directory.
 
 ## `TCV_MAPS_CEA.Rproj`
-The .RProj file that makes the directory a proper project in RStudio. Only for use in RStudio. Not necessary if the analysis is to be run with 
+The `.RProj` file that makes the directory a proper project in RStudio. Only for use in RStudio. Not necessary if the analysis is to be run with 
 
 ---
 # Computational considerations
 
 ## Hardware
 
-**Hardware needs:** For optimal performance, the model was run for different places and different scenarios using a high-performance computing cluster at the University of Basel (scicore, http://scicore.unibas.ch/). Scicore is run with a slurm scheduler, and the bash file is included in this repository. However, a user could use a parallel computing package in R or any other automated task management solution, but no such implementation is presented here.
+**Hardware needs:** For optimal performance, the model was run for different places and different scenarios using a high-performance computing cluster at the University of Basel (Scicore, http://scicore.unibas.ch/). Scicore is run with a slurm scheduler, and the bash file is included in this repository. However, a user could use a parallel computing package in R or any other automated task management solution, but no such implementation is presented here.
 
 **Memory needed:** Intermediate simulations and graphs need about 10 GB of storage for all outputs.
 
@@ -116,9 +116,9 @@ A single run of the code takes about 60 minutes in a MacBook Air (M1 chip, 2020 
 ### 1. Upload the subdirectory to the cluster 
 ### 2. *Re-parameterizing the model to accommodate wealth quintiles* 
 In the cluster, run _run_code_r_A_incidence.sh_ on terminal: `sbatch run_code_r_A_incidence.sh`. Adjust settings (for instance # of countries to run, if there are different numbers to run). This bash code calls `./A_incidence_code/code_R0_5WQ.R` which produces a directory `./out_fits/` with one subdirectory per country labeled with the IS03 label, and within each of those directories there is one file that is called `./fit_global.Rdata` which holds the new parameters for the simulations of vaccine impact.  
-– other helpful bash code: `squeue -u <username>` to see what jobs are running.  
-– other helpful bash code: `find . -type f -name "slurm*" -exec tail -1 {} \; -print` to see the last line of the slurm jobs to check which ones ended in an error.  
-– NOTE: change the `-1` to any number of last lines. I used this mostly to check which countries had failed. Then I would go to the output file to see why they had failed.  
+    – other helpful bash code: `squeue -u <username>` to see what jobs are running.  
+    – other helpful bash code: `find . -type f -name "slurm*" -exec tail -1 {} \; -print` to see the last line of the slurm jobs to check which ones ended in an error.  
+    – NOTE: change the `-1` to any number of last lines. I used this mostly to check which countries had failed. Then I would go to the output file to see why they had failed.  
 ### 3. *Vaccine simulations* 
 This step is a little different if one wants to run the global analysis or the subnational analysis with regions or with districts. Note that in Burkina Faso, the subnational analysis will only run with regions.   
 a. *Global Analysis:* In the cluster, run _run_code_r_Ba_vaxsims.sh_ on terminal: `sbatch run_code_r_Ba_vaxsims.sh`. Adjust settings (for instance # of countries to run, if there are different numbers to run). This bash code calls `./B_vax_sims_code/code_vax_sims_global.R` which produces a directory `./out_global/` with one subdirectory per sensitivity analysis (a combination of the MAPs coverage of the unvaccinated and the assumption about N&S coverage). Within each of those subdirectories, there will be one subdirectory per country labelled with the IS03 label, and within each of those directories, there are four files that hold the simulations for no MAPs and MAPs deployment with each of the three comparators.   
