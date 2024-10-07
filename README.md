@@ -117,9 +117,9 @@ A single run of the code takes about 60 minutes in a MacBook Air (M1 chip, 2020 
 ### 2. *Re-parameterizing the model to accommodate wealth quintiles* 
 In the cluster, run _run_code_r_A_incidence.sh_ on terminal: `sbatch run_code_r_A_incidence.sh`. Adjust settings (for instance # of countries to run, if there are different numbers to run). This bash code calls `./A_incidence_code/code_R0_5WQ.R` which produces a directory `./out_fits/` with one subdirectory per country labeled with the IS03 label, and within each of those directories there is one file that is called `./fit_global.Rdata` which holds the new parameters for the simulations of vaccine impact.  
 
-    – other helpful bash code: `squeue -u <username>` to see what jobs are running.  
-    – other helpful bash code: `find . -type f -name "slurm*" -exec tail -1 {} \; -print` to see the last line of the slurm jobs to check which ones ended in an error.  
-    – NOTE: change the `-1` to any number of last lines. I used this mostly to check which countries had failed. Then I would go to the output file to see why they had failed.  
+– other helpful bash code: `squeue -u <username>` to see what jobs are running.  
+– other helpful bash code: `find . -type f -name "slurm*" -exec tail -1 {} \; -print` to see the last line of the slurm jobs to check which ones ended in an error.  
+– NOTE: change the `-1` to any number of last lines. I used this mostly to check which countries had failed. Then I would go to the output file to see why they had failed.  
     
 ### 3. *Vaccine simulations* 
 This step is a little different if one wants to run the global analysis or the subnational analysis with regions or with districts. Note that in Burkina Faso, the subnational analysis will only run with regions.   
