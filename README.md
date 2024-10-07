@@ -32,8 +32,8 @@ B. a sub-national analysis where the cost-effectiveness of TCV-MAPS is considere
 The analysis is broadly defined in four parts, each of four parts is executed in various R code files:  
 I. Re-fitting incidence parameters to accommodate for 5 wealth quintiles in all countries  
 II. Simulating vaccine impact for national-level analysis   
-    + Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator  
-    - Simulating the impact of MAPS vaccines in the 2030's  
+        - Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator  
+        - Simulating the impact of MAPS vaccines in the 2030's  
     - Cost-effectiveness analysis  
 III. Simulating vaccine impact for sub-national (district) level analysis in five example countries  
     - Simulating the impact of N&S vaccines from deployment in the 2020's through the 2030's and 2040's as a comparator  
