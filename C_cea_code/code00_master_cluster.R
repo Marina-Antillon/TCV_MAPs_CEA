@@ -2,12 +2,12 @@
 
 # setwd("./maps_tcv_global")
 
-source("./cea_code/code00b_load_packages.R")
+source("./C_cea_code/code00b_load_packages.R")
 # library(formattable)
 # library(plyr)
 # library(wbstats)
 
-source("./cea_code/code00c_load_helper_functions.R")
+source("./C_cea_code/code00c_load_helper_functions.R")
 
 # Had to update this:
 # setRepositories(addURLs = c(CRANxtras = "http://lib.stat.cmu.edu/R/CRAN/bin/macosx/mavericks/contrib/3.3/"))
@@ -87,7 +87,7 @@ keep = c("CN", "ISO", "z", "keep", "years", "years_lbl", "mmgh_data_ns_intro", "
 
 # CEA parameter inputs ----
 
-source('./cea_code/code01_CEA_inputs_no_unc.R')
+source('./C_cea_code/code01_CEA_inputs_no_unc.R')
 
 fix$ns_price = 1.5
 fix$maps_price = vax_sens
@@ -102,11 +102,11 @@ rm(list=ls()[!(ls() %in% keep)]) # keep only those things in the important "keep
 gc()
 load(paste0(outfolder, ISO[CN[z],2], '/trt_inputs.Rdata'))
 
-source("./cea_code/00c_load_helper_functions.R")
+source("./C_cea_code/00c_load_helper_functions.R")
 
 load(paste0("../out/", ISO$countryiso[CN[z]], "/fit_global.Rdata"))
 
-source("./cea_code/code02_dynamic_inputs_no_unc.R")
+source("./C_cea_code/code02_dynamic_inputs_no_unc.R")
 # somehow indicate when the maps time starts. That's year 0.
 save(epipar, typhoid, doses, file=paste0(outfolder, ISO[CN[z],2], '/epi_inputs.Rdata'))
 
@@ -118,9 +118,9 @@ gc()
 
 load(paste0(outfolder, ISO[CN[z],2], '/trt_inputs.Rdata'))
 load(paste0(outfolder, ISO[CN[z],2], '/epi_inputs.Rdata'))
-source("./cea_code/00c_load_helper_functions.R")
+source("./C_cea_code/00c_load_helper_functions.R")
 
-source('./cea_code/code03_treatment.R')
+source('./C_cea_code/code03_treatment.R')
 # endcea = Sys.time()
 
 save(trt_model, trt_sims,  trt_sims_cond, trt_cost_sims_branch, yld_sims_branch,
@@ -139,9 +139,9 @@ gc()
 # begcea = Sys.time()
 load(paste0(outfolder, ISO[CN[z],2], '/trt_inputs.Rdata'))
 load(paste0(outfolder, ISO[CN[z],2], '/epi_inputs.Rdata'))
-source("./cea_code/00c_load_helper_functions.R")
+source("./C_cea_code/00c_load_helper_functions.R")
 
-source('./cea_code/code04_intervention.R')
+source('./C_cea_code/code04_intervention.R')
 # endcea = Sys.time()
 
 save(int_costs, int_costs_dif_horizon, int_costs_horizon, doses_ns_maps,
@@ -155,9 +155,9 @@ load(paste0(outfolder, ISO[CN[z],2], '/trt_inputs.Rdata'))
 load(paste0(outfolder, ISO[CN[z],2], '/epi_inputs.Rdata'))
 load(paste0(outfolder, ISO[CN[z],2], '/code03_treatment.Rdata'))
 load(paste0(outfolder, ISO[CN[z],2], '/code04_intervention.Rdata'))
-source("./cea_code/00c_load_helper_functions.R")
+source("./C_cea_code/00c_load_helper_functions.R")
 
-source('./cea_code/code05_cea_analysis.R')
+source('./C_cea_code/code05_cea_analysis.R')
 # endcea = Sys.time()
 
 save(icers_dalys_costs_summary, icers_dalys_costs_all_summary, 
@@ -172,6 +172,6 @@ save(icers_dalys_costs_summary, icers_dalys_costs_all_summary,
 # load(paste0('../out/', ISO[CN[z],2], '/code03_treatment.Rdata'))
 # load(paste0('../out/', ISO[CN[z],2], '/code04_intervention.Rdata'))
 # load(paste0('../out/', ISO[CN[z],2], '/code05_cea.Rdata'))
-# source("./cea_code/00c_load_helper_functions.R")
+# source("./C_cea_code/00c_load_helper_functions.R")
 
-# source('./cea_code/code05_make_simple_summaries.R')
+# source('./C_cea_code/code05_make_simple_summaries.R')

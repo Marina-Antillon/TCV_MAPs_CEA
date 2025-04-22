@@ -15,7 +15,7 @@ Seattle, WA, USA
 
 License: GPL-3.0 
 
-For questions, please contact Marina Antillon via LinkedIn.
+For questions, please contact Marina Antillon via LinkedIn. **However, before doing that, please read this README file all the way to the end (including the troubleshooting section).**
 
 ---
 # Project Objective 
@@ -95,7 +95,8 @@ The `.RProj` file that makes the directory a proper project in RStudio. Only for
 **Memory needed:** Intermediate simulations and graphs need about 10 GB of storage for all outputs.
 
 ## Software
-The tools for the analysis are coded in R. While we would highly recommend using the code within RStudio environment (in part because of its features to manage the project with .RProj and packrat) this is not strictly necessary and the benefits of git and renv are available from a classic R interface and a shell command line.
+
+The tools for the analysis are coded in R, version 4.1.1 (2021). While we would highly recommend using the code within RStudio environment (in part because of its features to manage the project with .RProj and packrat) this is not strictly necessary and the benefits of git and renv are available from a classic R interface and a shell command line.
 
 Some of the results tables for the project are produced automatically with the code in the project. This is done by employing the knitr and kableExtra packages. 
 
@@ -140,14 +141,31 @@ c. **Subnational analysis by district (not possible for Burkina Faso):** In the 
 ## Part II: on the local computer
 ### 5. Post-cluster output  
 
-a. **Global analysis:** run these files in any order: `code06a_global_epibaselines.R` and `code06b_global_cea.R`. The two pieces of code do not depend on the outputs of the other. The first piece summarizes how the model behaves with wealth quintiles and what we expect the typhoid landscape to look like just before MAPs are deployed in 2033, and the second piece of code summarizes the impact, costs, and cost-effectiveness of MAPs introduction.  
+a. **Global analysis:** run these files in any order: `./post_cluster_summaries_global/code06a_global_epibaselines.R` and `./post_cluster_summaries_global/code06b_global_cea.R`. The two pieces of code do not depend on the outputs of the other. The first piece summarizes how the model behaves with wealth quintiles and what we expect the typhoid landscape to look like just before MAPs are deployed in 2033, and the second piece of code summarizes the impact, costs, and cost-effectiveness of MAPs introduction.  
 
-b. **Subnational analysis:** run these files in this precise order: `code006a_deepdive_graphs_dist_strat_by_costs.R` and after that, `code06b_deepdive_graphs_dist_cost_sidebyside.R`. The second piece of code depends on the outputs of the first piece of code. These files call the district level cluster outputs for India, Kenya, Malawi, and Nepal, and the region-level outputs for Burkina Faso.   
+b. **Subnational analysis:** run these files in this precise order: `./post_cluster_summaries_global/code006a_deepdive_graphs_dist_strat_by_costs.R` and after that, `./post_cluster_summaries_global/code06b_deepdive_graphs_dist_cost_sidebyside.R`. The second piece of code depends on the outputs of the first piece of code. These files call the district level cluster outputs for India, Kenya, Malawi, and Nepal, and the region-level outputs for Burkina Faso.   
     
 ---
 
 # Troubleshooting
 
-**Issues with the renv repository:** If there is an issue with the repository, try typing renv:: rinit() and when prompted type the number 1, for Restored the project from lockfile.
+**Issues with the renv repository:** If there is an issue with the repository of pacjages, try typing renv::rinit() into the R console and when prompted type the number 1. This will restore the project from lockfile.
 
-**Adding a package to the renv library:** just use the command install.packages(). Note that doing this won't install the package for use with other projects. Then update the lockfile by typing renv::snapshot().
+**Adding a package to the renv library:** Within the R console, use the command install.packages(). Note that doing this won't install the package for use with other projects. Then, also within the R console, update the lockfile by typing renv::snapshot().
+
+**Dependencies fail with your version of R or your operating system:** 
+
+- This is an example of a workaround because the dependency systemfonts for the flextable package fails to install after the Jan 2025 update, thus preventing the flextable package to install as well:
+`withr::with_makevars(c(OBJCXXFLAGS = "${CXX17STD}"), install.packages('systemfonts'))` (typed into your R console). Alternatively, search online to install the previous release of the package and try installing that.
+
+- Another example was when `ggpubr` failed to install because there was an error installing `nloptr`. The error message indicated that this was because the cmake package for the OS (not as a package for R). In that case, it was necessary to install cmake (<https://cmake.org/>) using the computer terminal (not the R console), with one of the following commands as applicable: 
+
+ - sudo yum install cmake          (Fedora/CentOS; inside a terminal)
+ - sudo apt install cmake          (Debian/Ubuntu; inside a terminal).
+ - sudo pacman -S cmake            (Arch Linux; inside a terminal).
+ - brew install --cask cmake       (MacOS; inside a terminal with Homebrew)
+ - sudo port install cmake         (MacOS; inside a terminal with MacPorts)
+ 
+- A third example is when `ggpubr` and `car` refused to install because of the Matrix and MatrixModels packages failed to install. What was happening is that the most recent versions of those packages were not compatible for the version of R that was installed in the computer. Consider downloading the `remotes` package and then entering the following command: `remotes::install_version("Matrix", version = "1.6-1")`. After that, you can ask R to install `ggpubr` or `car` and `MatrixModels` will be installed as part of your desired packages.
+
+

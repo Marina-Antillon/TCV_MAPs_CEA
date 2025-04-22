@@ -1,26 +1,46 @@
-#############################
+#**********************************
 # Making graphs for the manuscript
 # National analysis
-#############################
+#**********************************
 
 library(readxl)
+library(openxlsx)
+library(R.matlab)
 library(dplyr)
 library(magrittr)
 library(tidyr)
 library(ggplot2)
 library(ggrepel)
-library(ggpubr)
+library(grid)
+
+# write in readme file!!
+# install.packages("remotes")
+# remotes::install_version("Matrix", version = "1.6-1")
+# install.packages("MatrixModels", type = "binary")
+
+# library(ggpubr) # can't install because of nloptr. I might be able to work around it.
+## cmake had to be installed via the computer terminal. Then Matrix and MatrixModels failed.
 library(cowplot)
-library(patchwork)
-library(scales)
+library(patchwork) 
+library(scales) 
 library(countrycode)
 library(wbstats)
-library(flextable)
+library(flextable) 
+## workaround because the dependency systemfonts fails after the Jan 2025 update:
+# withr::with_makevars(c(OBJCXXFLAGS = "${CXX17STD}"), install.packages('systemfonts'))
+# then reinstall flextable 
 library(stringr)
 
-# load("../ISO_which_to_run_vaxsims.Rdata")
-source("./C_cea_code/00b_load_packages.R")
-source("./C_cea_code/00c_load_helper_functions.R")
+# For plotting
+suppressPackageStartupMessages(library(ggplot2))
+
+# For data manipulation
+library(dplyr, warn.conflicts=FALSE) # Masks stats:filter,lag, base:intersect,setdiff,setequal,union
+library(cubelyr)
+library(abind)
+library(car) # necessary for VIF in multivariate linear models
+
+source("./C_cea_code/code00c_load_helper_functions.R")
 
 # useful functions
 dollarmk = function(x){return(ifelse(x==0,"$0",ifelse(x<1e6, paste0("$", x/1e3, "K"), paste0("$", x/1e6, "M"))))} 
@@ -38,7 +58,6 @@ agedist = readMat("./data/burden_dynamic_link_Yale.mat")$agedist.country
 ISO = read.csv("./data/iso.csv")
 
 # bring in continent information
-library(readxl)
 countries = read_excel("./data/Countries.xlsx", "Country Data w intro date") %>% 
   rename(ISO = `ISO code`, `WB_group` = `WB Group (June 2021)`, 
          `Gavi_eligibility` = `Gavi eligibility`, `TCV_MAPS_intro_date` = `TCV-MAP adoption year`,
@@ -136,12 +155,6 @@ mmgh_data_ns = read_xlsx("./data/2022_07_18_Base TCV-MAP.xlsx", "For PATH withou
 mmgh_data_ns$ISO[mmgh_data_ns$CountryName=="Dominica"] = "DMA" # there was an error with this before 22 May
 mmgh_data_maps$ISO[mmgh_data_maps$CountryName=="Dominica"] = "DMA" # there was an error with this before 22 May
 
-# Create necessary directories
-create_dir_if_necessary("./maps_tcv_global/")
-
-# Move to the right directory for outputs
-setwd("./maps_tcv_global/")
-
 # The Loop --
 # for(i in c(2,2.25,3,4.5)){
 
@@ -164,7 +177,7 @@ for(i in 1:20){
   
   for(zz in 1:(length(indicators$ISO))){
     
-    tmp_path = paste0('../out_global_cea-given in/', sens$maps_sens[i], ifelse(sens$mcv_sens[i]=="mcv1current", "", '_'), 
+    tmp_path = paste0('../out_global_cea/', sens$maps_sens[i], ifelse(sens$mcv_sens[i]=="mcv1current", "", '_'), 
                       ifelse(sens$mcv_sens[i]=="mcv1current", "", sens$mcv_sens[i]), '/', sens$vax_sens[i], 'dollars/')
     
     load(paste0(tmp_path, indicators$ISO[zz], '/trt_inputs.Rdata'))
@@ -195,7 +208,7 @@ for(i in 1:20){
              lifexp=fix$lifexp, 
              pop=tmp_pop, # fix$pop100k*1e5,
              meaninc = mean(TransPar$incsamples[,tmp]), 
-             meanage = 0.5*(avgage_yale[tmp]+avgage_ihme[tmp]),
+             meanage = mean(c(avgage_yale[tmp], avgage_ihme[tmp]), na.rm=T),
              death_per_case=avg_deaths,
              mcv1_cov = indicators$mcv1_total[indicators$ISO==indicators$ISO[zz]],
              mcv1_cov_wq1 = indicators$mcv1_wq1[zz], 
@@ -250,6 +263,10 @@ for(i in 1:20){
   icer_results_wq[[i]] = tmp_icer_results_wq
 }
 
+# Create necessary directories
+create_dir_if_necessary("../out_global_cea/maps_tcv_global/figures/EpiBaseline")
+# make figures too, no? as well as EpiBaseline?
+
 # Country TCV-MAP archetypes 
 #   1: HIC/UMIC with low typhoid incidence and/or AMR; 
 #   2: LMIC/LIC in rest of the world with high typhoid incidence and/or AMR; 
@@ -289,7 +306,7 @@ icer_results_wq = dplyr::bind_rows(icer_results_wq) %>%
                                 labels=c("$2.00 per dose", "$2.25 per dose", 
                                          "$3.00 per dose", "$4.50 per dose"))) 
 
-save(icer_results_all, icer_results_wq, file="./figures/EpiBaseline/icer_results_data.Rdata")
+save(icer_results_all, icer_results_wq, file="../out_global_cea/maps_tcv_global/figures/EpiBaseline/icer_results_data.Rdata")
 
 # Make Excel summary -----
 # Should I make this a table... give it to them as an excel. Costs as columns rather than rows...
@@ -325,10 +342,9 @@ TotalsExcel[["README"]] = data.frame(variable_note = c(colnames(TotalsExcel$no_d
                              "For the MCV coverage assumptions, I have run the simulations assuming maps_cov_sens of 20% only, to avoid too many outputs. It can be done for other values, however."))
 
 TotalsExcel = TotalsExcel[c("README", "no_disc", "disc")]
-openxlsx::write.xlsx(TotalsExcel, "./figures/EpiBaseline/TotalsExcel.xlsx", overwrite=T)
+openxlsx::write.xlsx(TotalsExcel, "../out_global_cea/maps_tcv_global/figures/EpiBaseline/TotalsExcel.xlsx", overwrite=T)
 
 ## IMPACT -----
-# For section 3.1.1 of Milestone 4
 
 grand_summaries_fcn = function(data){
   # consider making this more succint:
@@ -336,7 +352,7 @@ grand_summaries_fcn = function(data){
   # the one above may not work if because I also want to rename
   # AND:
   # mutate(across(v1:v2, ~ .x + n))
- tmp =  data %>%
+ tmp = data %>%
     dplyr::summarise(Cases_NS = sum(`Status Quo_Cases`/1e5*pop, na.rm=T),
                      Deaths_NS = sum(`Status Quo_Deaths`/1e5*pop, na.rm=T),
                      DALYs_NS = sum(`Status Quo_DALYs`/1e5*pop, na.rm=T),
@@ -345,23 +361,41 @@ grand_summaries_fcn = function(data){
                      Deaths_MAPS = sum(`MAPS add_Deaths`/1e5*pop, na.rm=T),
                      DALYs_MAPS = sum(`MAPS add_DALYs`/1e5*pop, na.rm=T),
                      Cost_MAPS = sum(`MAPS add_Cost`/1e5*pop, na.rm=T),
-                     Cases_Dif = sum(`Cases_averted`/1e5*pop, na.rm=T),
-                     Deaths_Dif = sum(`Deaths_averted`/1e5*pop, na.rm=T),
-                     DALYs_Dif = sum(`DALYs_averted`/1e5*pop, na.rm=T),
-                     Cost_Dif = sum(`Cost_dif`/1e5*pop, na.rm=T)) %>%
+                     Cases_Dif = sum(-`Cases_averted`/1e5*pop, na.rm=T),
+                     Deaths_Dif = sum(-`Deaths_averted`/1e5*pop, na.rm=T),
+                     DALYs_Dif = sum(-`DALYs_averted`/1e5*pop, na.rm=T),
+                     Cost_Dif = sum(`Cost_dif`/1e5*pop, na.rm=T),
+                     pop = sum(pop)) %>%
+    mutate(Cases_Prct = Cases_Dif/Cases_NS*100,
+           Deaths_Prct = Deaths_Dif/Deaths_NS*100, 
+           DALYs_Prct = DALYs_Dif/DALYs_NS*100, 
+           Cost_Prct = Cost_Dif/Cost_NS*100,
+           Cases_MPop = Cases_Dif/pop*1e6,
+           Deaths_MPop = Deaths_Dif/pop*1e6,
+           DALYs_MPop = DALYs_Dif/pop*1e6,
+           Cost_MPop = Cost_Dif/pop*1e6) %>%
     mutate(Cases_NS = format(Cases_NS, big.mark=","),
-           Deaths_NS = format(Deaths_NS, big.mark=","),
-           DALYs_NS = format(DALYs_NS, big.mark=","),
+           Deaths_NS = format(Deaths_NS, big.mark=",", digits=0, scientific=F),
+           DALYs_NS = format(DALYs_NS, big.mark=",", digits=0, scientific=F),
            Cost_NS = format(Cost_NS, big.mark=","),
            Cases_MAPS = format(Cases_MAPS, big.mark=","),
-           Deaths_MAPS = format(Deaths_MAPS, big.mark=","),
-           DALYs_MAPS = format(DALYs_MAPS, big.mark=","),
+           Deaths_MAPS = format(Deaths_MAPS, big.mark=",", digits=0, scientific=F),
+           DALYs_MAPS = format(DALYs_MAPS, big.mark=",", digits=0, scientific=F),
            Cost_MAPS = format(Cost_MAPS, big.mark=","),
-           Cases_Dif = format(Cases_Dif, big.mark=","),
-           Deaths_Dif = format(Deaths_Dif, big.mark=","),
-           DALYs_Dif = format(DALYs_Dif, big.mark=","),
-           Cost_Dif = format(Cost_Dif, big.mark=",")) %>% 
-    pivot_longer(cols=Cases_NS:Cost_Dif,
+           Cases_Dif = format(Cases_Dif, big.mark=",", digits=0, scientific=F),
+           Deaths_Dif = format(Deaths_Dif, big.mark=",", digits=0, scientific=F),
+           DALYs_Dif = format(DALYs_Dif, big.mark=",", digits=0, scientific=F),
+           Cost_Dif = format(Cost_Dif, big.mark=",", digits=0, scientific=F),
+           Cases_Prct = format(Cases_Prct, digits=1, nsmall=1),
+           Deaths_Prct = format(Deaths_Prct, digits=1, nsmall=1),
+           DALYs_Prct = format(DALYs_Prct, digits=1, nsmall=1),
+           Cost_Prct = format(Cost_Prct, digits=1, nsmall=1), 
+           Cases_MPop = format(Cases_MPop, big.mark=",", digits=0),
+           Deaths_MPop = format(Deaths_MPop, big.mark=",", digits=0),
+           DALYs_MPop = format(DALYs_MPop, big.mark=",", digits=0),
+           Cost_MPop = format(Cost_MPop, big.mark=",", digits=0, scientific=F)) %>% 
+    dplyr::select(-pop) %>%
+    pivot_longer(cols=Cases_NS:Cost_MPop,
                  names_sep = "_",
                  names_to = c("Outcome", "Type"),
                  values_to = "value")  %>% 
@@ -389,21 +423,21 @@ table2summaries_total = icer_results_all %>%
   pivot_wider(id_cols = Outcome, 
               names_from = Type,
               values_from = value) %>%
-  mutate(Continent="Total")
+  mutate(Continent="All (Population in analysis: 6.6B in 2021)")
 
 table2summaries = bind_rows(table2summaries_total, table2summaries_continent)
-table2summaries = table2summaries[,c(5,1:4)] 
+table2summaries = table2summaries %>% relocate(Continent)
 
-ft = flextable(table2summaries) %>%
-  set_header_labels(`Continent` = "Continent", `NS` = "N&S", `MAPS` = "MAPs", `Dif` = "Difference") %>% 
-  merge_v(j=c("Continent")) %>% 
+ft = as_grouped_data(table2summaries, groups = "Continent") %>% 
+  as_flextable(hide_grouplabel = TRUE) %>%
+  set_header_labels(`NS` = "N&S", `MAPS` = "MAPs", `Dif` = "Difference", `Prct` = "Percent", `MPop` = "Per Million Pop.") %>% 
   theme_vanilla() %>% 
-  valign(j = "Continent", valign = "center") %>% 
-  width(j="Continent", 1.25) %>% width(j="Outcome", 1.25) %>% width(j="NS", 1.25) %>% width(j="MAPS", 1.25) %>% width(j="Dif", 1.25) %>% 
-  align(j=c("NS", "MAPS", "Dif"), align="right") # %>% 
-  # append_chunks(i = c(1, 7), j = 1, as_chunk(paste0("\n(No TCV = ", Cases_totals$Totals[c(2,1)], " cases)"))) %>% 
+   width(j="Outcome", 1.25) %>% width(j="NS", 1.25) %>% width(j="MAPS", 1.25) %>% 
+    width(j="Dif", 1.25) %>% width(j="Prct", 0.5) %>% width(j="MPop", 0.75) %>% 
+  align(j=c("NS", "MAPS", "Dif", "Prct", "MPop"), align="right") %>% 
+  align(i = ~ !is.na(Continent), align = "left")
 
-save_as_docx(`Epidemiology outputs` = ft, path = "./figures/DefaultAssumptionsTotals.docx")
+save_as_docx(`Epidemiology outputs` = ft, path = "../out_global_cea/maps_tcv_global/figures/EpiBaseline/DefaultAssumptionsTotals.docx")
 
 
 # delta Cases, DALYs, costs in a graph for the default options by WQ. Put global totals too.
@@ -507,7 +541,7 @@ ByCountryExcel[["README"]] = data.frame(variable_note = c(colnames(ByCountryExce
                                               ))
 
 ByCountryExcel = ByCountryExcel[c("README", "WQ_no_disc", "WQ_disc", "Country_no_disc", "Country_disc")]
-openxlsx::write.xlsx(ByCountryExcel, "./figures/EpiBaseline/ByCountryExcel.xlsx", overwrite=T)
+openxlsx::write.xlsx(ByCountryExcel, "../out_global_cea/maps_tcv_global/figures/EpiBaseline/ByCountryExcel.xlsx", overwrite=T)
 
 totals_wq_def = icer_results_wq %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", discounting=="no_disc", 
                            maps_profile=="Base", comp=="80% switch to MAPs",
@@ -543,7 +577,7 @@ ggplot((totals_wq_def), aes(x=name_place, y=value, fill=wealth_quintile)) +
         strip.placement = "outside", 
         panel.spacing = unit(0.25,'lines'))
 
-ggsave("./figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ.pdf", width = 16, height = 20, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ.pdf", width = 16, height = 20, units="in")
 
 ggplot((totals_wq_def), aes(x=name_place, y=value, fill=wealth_quintile)) + 
   geom_bar(stat="identity", position = position_fill(reverse = TRUE)) + 
@@ -561,7 +595,7 @@ ggplot((totals_wq_def), aes(x=name_place, y=value, fill=wealth_quintile)) +
         strip.placement = "outside", 
         panel.spacing = unit(0.25,'lines'))
 
-ggsave("./figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ_Dist.pdf", width = 16, height = 20, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ_Dist.pdf", width = 16, height = 20, units="in")
 
 totals_wq_def_gavi = totals_wq_def %>% 
   group_by(Gavi_eligibility, Measure, wealth_quintile) %>% 
@@ -608,12 +642,12 @@ ggsum3 = summary_plot(totals_wq_def_gavi)
 
 ### pull together --
 
-ggarrange(ggsum1, ggsum2, ggsum3, 
-          labels="AUTO",
-          ncol = 1, heights = c(0.85, 0.65, 1), 
-          common.legend = F, align="v") 
+plot_grid(ggsum1, ggsum2, ggsum3, 
+          labels='AUTO',
+          ncol = 1, rel_heights = c(0.85, 0.65, 1), 
+          align="v") 
 # list("Gavi eligibility", "World Bank income group", "Country archetype", "WHO region")
-ggsave("./figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ_Summaries.pdf", width = 12, height = 8, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCasesDALYsDeathsCostsWQ_Summaries.pdf", width = 12, height = 8, units="in")
 
 totals_wq_def %>% filter(Measure!="DALYs Averted") %>%
   group_by(Continent, Measure) %>% 
@@ -633,7 +667,7 @@ totals_wq_def %>% filter(Measure!="DALYs Averted") %>%
   scale_y_continuous(labels=countmk3, expand = c(0, 0)) +
   xlab("") + ylab("") + labs(fill="Wealth Quintile") + 
   facet_grid(.~Measure, scale="free")
-ggsave("./figures/EpiBaseline/BaselineCasesDALYsDeathsCosts_Summaries.pdf", width = 9, height = 3, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCasesDALYsDeathsCosts_Summaries.pdf", width = 9, height = 3, units="in")
 
 totals_wq_def %>% 
   group_by(Continent, Measure) %>% 
@@ -661,7 +695,6 @@ SpotCheckComp2 = icer_results_all %>%
          mcv_cov_sens=="mcv1current", maps_cov_sens==0.2, 
          ISO %in% c("BFA", "KEN", "IND", "MWI", "NPL", "NGA")) 
 
-# for this, go fetch the Nigeria results by hand
   # tmp_doses = doses %>% apply(c(3:5), "sum")
   # tmp_doses = tmp_doses %>% cubelyr::as.tbl_cube() %>% as_tibble()
   # tmp_doses = doses %>% apply(c(3:5,6), "sum")
@@ -710,27 +743,42 @@ basecea_weighted = function(xcol, vxprice){
     theme(legend.text = element_text(size=10), axis.title.y = element_text(size=10))}
 
 # group together
-ggarrange(basecea("Continent", "$3.00 per dose"), basecea_weighted("Continent", "$3.00 per dose"),
-          basecea("WB_group", "$3.00 per dose"), basecea_weighted("WB_group", "$3.00 per dose"),
-          # basecea("Country_archetype", "$3.00 per dose"), basecea_weighted("Country_archetype", "$3.00 per dose"), 
-          basecea("Gavi_eligibility", "$3.00 per dose"), basecea_weighted("Gavi_eligibility", "$3.00 per dose"),
-          labels = "AUTO", 
-          ncol = 2, nrow = 3, heights = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") 
-# list("Gavi eligibility", "World Bank income group", "Country archetype", "WHO region")
-ggsave("./figures/EpiBaseline/BaselineCEAs_3d.pdf", width = 11, height = 10, units="in")
-ggsave("./figures/EpiBaseline/BaselineCEAs_3d.jpg", width = 11, height = 10, units="in")
 
-ggarrange(basecea("Continent", "$2.25 per dose"), basecea_weighted("Continent", "$2.25 per dose"),
-          basecea("WB_group", "$2.25 per dose"), basecea_weighted("WB_group", "$2.25 per dose"),
-          # basecea("Country_archetype", "$2.25 per dose"), basecea_weighted("Country_archetype", "$2.25 per dose"), 
-          basecea("Gavi_eligibility", "$2.25 per dose"), basecea_weighted("Gavi_eligibility", "$2.25 per dose"),
-          labels = "AUTO", 
-          ncol = 2, nrow = 3, heights = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") 
+# fish the legend out of the object
+tmp = basecea("Continent", "$3.00 per dose")
+legend_b = get_plot_component(tmp, "guide-box-bottom")
+
+plot_grid(basecea("Continent", "$3.00 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("Continent", "$3.00 per dose") + theme(legend.position = "none"),
+          basecea("WB_group", "$3.00 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("WB_group", "$3.00 per dose") + theme(legend.position = "none"),
+          # basecea("Country_archetype", "$3.00 per dose"), 
+          # basecea_weighted("Country_archetype", "$3.00 per dose"), 
+          basecea("Gavi_eligibility", "$3.00 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("Gavi_eligibility", "$3.00 per dose") + theme(legend.position = "none"),
+          labels = LETTERS[1:6], 
+          ncol = 2, nrow = 4, rel_heights = c(1, 1, 1, 0.3), 
+          axis = 'lr', align="v") + 
+  draw_grob(legend_b, vjust=0.45)
 # list("Gavi eligibility", "World Bank income group", "Country archetype", "WHO region")
-ggsave("./figures/EpiBaseline/BaselineCEAs_2.25d.pdf", width = 11, height = 10, units="in")
-ggsave("./figures/EpiBaseline/BaselineCEAs_2.25d.jpg", width = 11, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCEAs_3d.pdf", width = 11, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCEAs_3d.jpg", width = 11, height = 10, units="in")
+
+plot_grid(basecea("Continent", "$2.25 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("Continent", "$2.25 per dose") + theme(legend.position = "none"),
+          basecea("WB_group", "$2.25 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("WB_group", "$2.25 per dose") + theme(legend.position = "none"),
+          # basecea("Country_archetype", "$2.25 per dose"), 
+          # basecea_weighted("Country_archetype", "$2.25 per dose"), 
+          basecea("Gavi_eligibility", "$2.25 per dose") + theme(legend.position = "none"), 
+          basecea_weighted("Gavi_eligibility", "$2.25 per dose") + theme(legend.position = "none"),
+          labels = LETTERS[1:6], 
+          ncol = 2, nrow = 4, rel_heights = c(1, 1, 1, 0.3), 
+          axis = 'lr', align="v") + 
+  draw_grob(legend_b, vjust=0.45)
+# list("Gavi eligibility", "World Bank income group", "Country archetype", "WHO region")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCEAs_2.25d.pdf", width = 11, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BaselineCEAs_2.25d.jpg", width = 11, height = 10, units="in")
 
 # WEIGHTED, BASE, $3
 icer_results_all %>%
@@ -759,7 +807,7 @@ icer_results_all %>%
 # 4 Eurasia   0       0      0          1     0       418909060 
 # 5 Mideast   0       0      0.00155    0.952 0.0462  713919117 
 
-# %>% write.csv("global_by_continent.csv")
+# %>% write.csv("../out_global_cea/maps_tcv_global/global_by_continent.csv")
 
 # UNWEIGHTED, BASE, $3
 icer_results_all %>%
@@ -774,12 +822,12 @@ icer_results_all %>%
          HCE = ifelse(is.na(HCE), 0, HCE),
          CE = ifelse(is.na(CE), 0, CE),
          CS = ifelse(is.na(CS), 0, CS)) %>%
-  mutate(total=CE+`Not CE`+VCE+HCE+CS) %>%
-  mutate(CS = CS/total,
-         HCE = HCE/total,
-         VCE = VCE/total,
-         CE = CE/total,
-         `Not CE` = `Not CE`/total)
+  mutate(totalcountries=CE+`Not CE`+VCE+HCE+CS) %>%
+  mutate(CS = CS/totalcountries,
+         HCE = HCE/totalcountries,
+         VCE = VCE/totalcountries,
+         CE = CE/totalcountries,
+         `Not CE` = `Not CE`/totalcountries)
 
 # UNWEIGHTED
 # Continent    HCE   VCE     CE `Not CE`     CS total
@@ -799,7 +847,6 @@ icer_results_all %>%
             Pop = sum(pop)) 
 
 # CEcat      N         Pop
-# <fct>  <int>       <dbl>
 # 1 CS        11  467847101 
 # 2 HCE       43 2947811203.
 # 3 VCE        9  144228553 
@@ -859,12 +906,10 @@ punw = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", 
   themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=9))
 
 ggdraw(punw, xlim = c(0, 1), ylim = c(0, 1), clip = "off") + 
-  draw_grob(
-  grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-  x = 0.102, y = 0.3625, width = 0.08, height = 0.175
-)
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+    x = 0.102, y = 0.3625, width = 0.08, height = 0.175)
   
-ggsave(paste0("./figures/EpiBaseline/BasicSens_cea_unweighted.pdf"), width = 7.5, height = 7, units = "in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_cea_unweighted.pdf", width = 7.5, height = 7, units = "in")
 
 pwei = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", discounting=="disc", 
                                    mcv_cov_sens=="mcv1current", maps_cov_sens==0.2, !is.na(icers))%>%
@@ -881,12 +926,10 @@ pwei = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", 
   themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=9))
 
 ggdraw(pwei, xlim = c(0, 1), ylim = c(0, 1), clip = "off") + 
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.102, y = 0.3625, width = 0.08, height = 0.175
-  )
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+    x = 0.102, y = 0.3625, width = 0.08, height = 0.175)
 
-ggsave("./figures/EpiBaseline/BasicSens_cea_weighted.pdf", width = 7.5, height = 7, units = "in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_cea_weighted.pdf", width = 7.5, height = 7, units = "in")
 
 # Reordered
 punw = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", discounting=="disc", 
@@ -902,7 +945,7 @@ punw = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", 
   facet_grid(.~vax_cost_sens) + 
   themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=9))
 
-ggsave(paste0("./figures/EpiBaseline/BasicSens_cea_unweighted_reordered.pdf"), width = 8, height = 4, units = "in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_cea_unweighted_reordered.pdf", width = 8, height = 4, units = "in")
 
 pwei = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", discounting=="disc", 
                                    mcv_cov_sens=="mcv1current", maps_cov_sens==0.2, !is.na(icers),
@@ -918,7 +961,7 @@ pwei = icer_results_all %>% filter(ns_strat=="RoutineCampaign", horizon=="20y", 
                     drop=F) + scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + 
   facet_grid(.~vax_cost_sens) + 
   themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=9))
-ggsave("./figures/EpiBaseline/BasicSens_cea_weighted_reordered.pdf", width = 8, height = 4, units = "in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_cea_weighted_reordered.pdf", width = 8, height = 4, units = "in")
 
 
 ## Extended Sensitivity ------
@@ -947,8 +990,8 @@ punw = tmp_sens_mapcov %>%
   theme(strip.text.y = element_blank(), 
         # axis.title.y = element_text(vjust = -15),  # value by experiment
         # strip.placement = "outside", 
-        panel.spacing = unit(0.25,'lines'), 
-        plot.margin = unit(c(0, 0.25, 0, 0), "pt"))
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
 pwei = tmp_sens_mapcov %>% 
   group_by(maps_cov_sens, vax_cost_sens, maps_profile, CEcat) %>% 
@@ -961,24 +1004,26 @@ pwei = tmp_sens_mapcov %>%
                     label=c("Cost-saving", "Highly cost-effective", "Very cost-effective", "Cost-effective", "Not cost-effective"),
                     drop=F) + scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) + 
   facet_grid(maps_profile+vax_cost_sens~.) + 
-  themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=9), 
-                                                       plot.margin = unit(c(0, 0, 0, 0), "pt"))
+  themebar + guides(fill=guide_legend(nrow=1)) + 
+  theme(legend.text = element_text(size=9), 
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
-punw_pwei = ggarrange(punw, pwei,
-          # labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
+legend_b = get_plot_component(punw, "guide-box-bottom")
 
-ggdraw(punw_pwei, xlim = c(0, 1), ylim = c(0, 1), clip = "off") +
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.21, y = 0.5475, width = 0.1, height = 0.2) + 
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.695, y = 0.5475, width = 0.1, height = 0.2)
+plot_grid(punw + theme(legend.position = "none"), 
+          pwei + theme(legend.position = "none"), 
+          nrow=2, ncol = 2, 
+          rel_heights = c(1, 0.08), rel_widths = c(0.875, 1)) +
+  draw_grob(legend_b, vjust=0.475) + 
+  draw_text("Coverage achieved by MAPS among the previously unvaccinated", 
+            vjust=44.5, size=10, fontface="bold") + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+    x = 0.215, y = 0.5625, width = 0.11, height = 0.195) + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+    x = 0.6825, y = 0.5625, width = 0.11, height = 0.195)
 
-ggsave("./figures/EpiBaseline/ExtendedSens_MAPScov.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/ExtendedSens_MAPScov.pdf", width = 8, height = 10, units="in")
 
 ### MCV1 coverage ----
 
@@ -1004,8 +1049,8 @@ punw = tmp_sens_mcvcov %>%
   theme(strip.text.y = element_blank(), 
         # axis.title.y = element_text(vjust = -15),  # value by experiment
         # strip.placement = "outside", 
-        panel.spacing = unit(0.25,'lines'), 
-        plot.margin = unit(c(0, 0.25, 0, 0), "pt"))
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
 pwei = tmp_sens_mcvcov %>% 
   group_by(mcv_cov_sens, vax_cost_sens, maps_profile, CEcat) %>% 
@@ -1023,24 +1068,24 @@ pwei = tmp_sens_mcvcov %>%
       # strip.text.y = element_blank(), 
       # axis.title.y = element_text(vjust = -15),  # value by experiment
       # strip.placement = "outside", 
-      panel.spacing = unit(0.25,'lines'), 
-      plot.margin = unit(c(0, 0, 0, 0), "pt"))
+      panel.spacing = unit(0.5,'lines'), 
+      plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
-punw_pwei = ggarrange(punw, pwei,
-          # labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
+legend_b = get_plot_component(punw, "guide-box-bottom")
 
-ggdraw(punw_pwei, xlim = c(0, 1), ylim = c(0, 1), clip = "off") +
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.21, y = 0.5527, width = 0.1, height = 0.195) + 
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.695, y = 0.5527, width = 0.1, height = 0.195)
+plot_grid(punw + theme(legend.position = "none"), 
+          pwei + theme(legend.position = "none"), 
+          nrow=2, ncol=2, 
+          rel_heights = c(1, 0.06), rel_widths = c(0.875, 1)) +
+  draw_grob(legend_b, vjust=0.475) + 
+  # draw_text("Coverage achieved by MAPS among the previously unvaccinated", 
+            # vjust=44.5, size=10, fontface="bold") + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.215, y = 0.5625, width = 0.11, height = 0.195) + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.6825, y = 0.5625, width = 0.11, height = 0.195)
 
-ggsave("./figures/EpiBaseline/ExtendedSens_MVC1cov.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/ExtendedSens_MVC1cov.pdf", width = 8, height = 10, units="in")
 
 ### ns_strat ----
 
@@ -1066,8 +1111,8 @@ punw = tmp_sens_nstrat %>%
   theme(strip.text.y = element_blank(), 
         # axis.title.y = element_text(vjust = -15),  # value by experiment
         # strip.placement = "outside", 
-        panel.spacing = unit(0.25,'lines'), 
-        plot.margin = unit(c(0, 0.25, 0, 0), "pt"))
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
 pwei = tmp_sens_nstrat %>% 
   group_by(ns_strat, vax_cost_sens, maps_profile, CEcat) %>% 
@@ -1084,24 +1129,24 @@ pwei = tmp_sens_nstrat %>%
   theme(# strip.text.y = element_blank(), 
         # axis.title.y = element_text(vjust = -15),  # value by experiment
         # strip.placement = "outside", 
-        panel.spacing = unit(0.25,'lines'), 
-        plot.margin = unit(c(0, 0.25, 0, 0), "pt"))
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
-punw_pwei = ggarrange(punw, pwei,
-          # labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
+legend_b = get_plot_component(punw, "guide-box-bottom")
 
-ggdraw(punw_pwei, xlim = c(0, 1), ylim = c(0, 1), clip = "off") +
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.1025, y = 0.5525, width = 0.1, height = 0.195) + 
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.5875, y = 0.5525, width = 0.1, height = 0.195)
+plot_grid(punw + theme(legend.position = "none"), 
+          pwei + theme(legend.position = "none"), 
+          nrow=2, ncol=2, 
+          rel_heights = c(1, 0.06), rel_widths = c(0.875, 1)) +
+  draw_grob(legend_b, vjust=0.475) + 
+  # draw_text("Coverage achieved by MAPS among the previously unvaccinated", 
+  # vjust=44.5, size=10, fontface="bold") + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.215, y = 0.5625, width = 0.11, height = 0.195) + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.6825, y = 0.5625, width = 0.11, height = 0.195)
 
-ggsave("./figures/EpiBaseline/ExtendedSens_NSstrat.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/ExtendedSens_NSstrat.pdf", width = 8, height = 10, units="in")
 
 ## CEA and disparities -----
 
@@ -1140,7 +1185,7 @@ ineq_dalys = ineq_analysis %>%
   labs(title="DALYs") +
   themebar +theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
 # if I can put a correlation coefficient, that would be great
-ggsave("./figures/EpiBaseline/Ineq_reduction_DALYS.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/Ineq_reduction_DALYS.pdf", width = 8, height = 10, units="in")
 
 ineq_analysis %>%
   ggplot(aes(x=redORbaseC, y=redORratC)) + 
@@ -1189,17 +1234,14 @@ ineq_cases = ineq_analysis %>%
   xlab("Excess cases among the\nlowest 20% compared to the highest 20%\nbefore MAPs vaccination") + 
   ylab("Percent reduction in disparity of cases among\nthe lowest 20% compared to the highest 20%") + 
   labs(title="Cases") +
-  themebar +theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
-ggsave("./figures/EpiBaseline/Ineq_reduction_cases.pdf", width = 8, height = 10, units="in")
+  themebar+theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/Ineq_reduction_cases.pdf", width = 8, height = 10, units="in")
 
 # group cases and dalys
 
-ggarrange(ineq_cases, ineq_dalys,
-          labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
-
-ggsave("./figures/EpiBaseline/Ineq_reduction_both.pdf", width = 9, height = 6, units="in")
+legend_b = get_plot_component(punw, "guide-box-bottom")
+plot_grid(ineq_cases, ineq_dalys, nrow=1, ncol=2) 
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/Ineq_reduction_both.pdf", width = 9, height = 5, units="in")
 
 ineq_analysis %>%
   ggplot(aes(x=redORbaseC, y=redORratC)) + 
@@ -1243,8 +1285,6 @@ ineq_analysis %>%
   geom_jitter(color="black", size=0.4, alpha=0.9) +
   themebar + facet_grid(.~WB_group, scale="free_y")
 
-# THIS ONE:
-
 neglog10 <- scales::trans_new("signed_log",
                            transform=function(x) sign(x)*log(abs(x), 10),
                            inverse=function(x) sign(x)*10^(abs(x)))
@@ -1259,7 +1299,7 @@ ineq_icer_dalys = ineq_analysis %>%
   xlab("Reduction in disparity of DALYs\nbetween richest and poorest") + 
   ylab("ICER scaled by GDP per capita (log-scale)") +
   labs(title="DALYs") +
-  themebar +theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
+  themebar+theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
 
 ineq_icer_cases = ineq_analysis %>% 
   ggplot(aes(x=redORratC, y=pmax(icers_all/gdp, 0.01))) + 
@@ -1273,12 +1313,10 @@ ineq_icer_cases = ineq_analysis %>%
   labs(title="Cases") +
   themebar +theme(plot.title=element_text(face="bold", size=14, hjust=0.5)) # + facet_grid(.~WB_group, scale="free_y")
 
-ggarrange(ineq_icer_cases, ineq_icer_dalys, 
-          labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
+legend_b = get_plot_component(punw, "guide-box-bottom")
+plot_grid(ineq_icer_dalys, ineq_icer_cases, nrow=1, ncol=2) 
 
-ggsave("./figures/EpiBaseline/Ineq_reduction_icers_both.pdf", width = 9, height = 6, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/Ineq_reduction_icers_both.pdf", width = 9, height = 6, units="in")
 # corr anyways?
 cor.test(ineq_analysis$redORrat, log10(pmax(ineq_analysis$icers_all/ineq_analysis$gdp, 0.01)))
 cor.test(ineq_analysis$redORratC, log10(pmax(ineq_analysis$icers_all/ineq_analysis$gdp, 0.01)))
@@ -1357,8 +1395,8 @@ punw = tmp_wq_graph %>%
   theme(strip.text.y = element_blank(), 
         # axis.title.y = element_text(vjust = -15),  # value by experiment
         # strip.placement = "outside", 
-        panel.spacing = unit(0.25,'lines'), 
-        plot.margin = unit(c(0, 0.25, 0, 0), "pt"))
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt"))
 
 pwei = tmp_wq_graph %>%
   group_by(wealth_quintile, vax_cost_sens, maps_profile, CEcat) %>% 
@@ -1370,24 +1408,27 @@ pwei = tmp_wq_graph %>%
   scale_fill_manual(values=c("#006837", "#66bd63", "#addd8e", "#d9ef8b", "#d73027"),
                     label=c("Cost-saving", "Highly cost-effective", "Very cost-effective", "Cost-effective", "Not cost-effective"),
                     drop=F) +
-  themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=10)) + 
+  themebar + guides(fill=guide_legend(nrow=1)) + 
+  theme(legend.text = element_text(size=10),
+        panel.spacing = unit(0.5,'lines'), 
+        plot.margin = unit(c(5, 5, 0, 5), "pt")) + 
   facet_grid(maps_profile+vax_cost_sens~.) 
   
-punw_pwei = ggarrange(punw, pwei,
-          # labels = "AUTO", 
-          ncol = 2, nrow = 1, widths = c(1, 1), 
-          common.legend = T, legend = "bottom", align="v") + 
-  theme(plot.margin = margin(0.5,0.25,0.5,0.25, "cm")) 
+legend_b = get_plot_component(punw, "guide-box-bottom")
 
-ggdraw(punw_pwei, xlim = c(0, 1), ylim = c(0, 1), clip = "off") +
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.1025, y = 0.54, width = 0.315, height = 0.2) + 
-  draw_grob(
-    grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
-    x = 0.59, y = 0.54, width = 0.315, height = 0.2)
+plot_grid(punw + theme(legend.position = "none"), 
+          pwei + theme(legend.position = "none"), 
+          nrow=2, ncol=2, 
+          rel_heights = c(1, 0.06), rel_widths = c(0.875, 1)) +
+  draw_grob(legend_b, vjust=0.475) + 
+  # draw_text("Coverage achieved by MAPS among the previously unvaccinated", 
+  # vjust=44.5, size=10, fontface="bold") + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.08, y = 0.54, width = 0.375, height = 0.22) + 
+  draw_grob(grob = rectGrob(gp = gpar(col = "black", fill = NA, lwd = 4)),
+            x = 0.55, y = 0.54, width = 0.375, height = 0.22)
 
-ggsave("./figures/EpiBaseline/BasicSens_WQ.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_WQ.pdf", width = 8, height = 10, units="in")
 
 # CE by WQ - weighted only, but showing both comp1 and comp2
 tmp_wq_graph2 = bind_rows((icer_results_wq %>%  
@@ -1417,107 +1458,219 @@ tmp_wq_graph2 %>%
   themebar + guides(fill=guide_legend(nrow=1)) + theme(legend.text = element_text(size=10)) + 
   facet_grid(maps_profile~comp) 
 
-ggsave("./figures/EpiBaseline/BasicSens_WQ_3d_comp_profile.pdf", width = 8, height = 7, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/BasicSens_WQ_3d_comp_profile.pdf", width = 8, height = 7, units="in")
 # this didn't make it to the paper.
 
 # Influential parameters ----
   # with the most default assumptions.
   
-sensdata = icer_results_all %>% filter(horizon=="20y", discounting=="disc", 
-                                       comp=="80% switch to MAPs", ns_strat=="RoutineCampaign",
-                                       maps_cov_sens==0.2, vax_cost_sens=="$3.00 per dose",
-                                       maps_profile=="Base", 
-                                       mcv_cov_sens=="mcv1current", !is.na(icers)) %>% 
-  dplyr::select(ISO, icers, gdp, lifexp, `Status Quo_Cases`, seek, SIR_fit_rep, `Status Quo_TrtCost`, mcv1_cov, mcv1_cov_wq1, death_per_case, vax_del_maps_uc_base1, vax_del_ns_uc_base1, 
-                meaninc, meanage, sani_cov, sani_cov_wq1, amr_prob, ip_mort, ipip_mort, op_costs_rx, op_costs, 
-                 ip_costs, ip_costs_rx, ipip_costs_surgery, TCV_NS_intro_date, TCV_MAPS_intro_date, pop) %>% 
+sensdata = icer_results_all %>% 
+  filter(horizon=="20y", discounting=="disc", 
+         comp=="80% switch to MAPs", ns_strat=="RoutineCampaign",
+         maps_cov_sens==0.2, vax_cost_sens=="$3.00 per dose",
+         maps_profile=="Base", 
+         mcv_cov_sens=="mcv1current", !is.na(icers)) %>% 
+  dplyr::select(ISO, icers, gdp, lifexp, `Status Quo_Cases`, seek, SIR_fit_rep, 
+                `Status Quo_TrtCost`, mcv1_cov, mcv1_cov_wq1, death_per_case, 
+                vax_del_maps_uc_base1, vax_del_ns_uc_base1, 
+                meaninc, meanage, sani_cov, sani_cov_wq1, amr_prob, ip_mort, 
+                ipip_mort, op_costs_rx, op_costs, 
+                ip_costs, ip_costs_rx, ipip_costs_surgery, 
+                TCV_NS_intro_date, TCV_MAPS_intro_date, pop) %>% 
   mutate(avgtrtcost = `Status Quo_TrtCost`/(`Status Quo_Cases`*seek),
         CEAindex=icers/gdp, add_del = vax_del_maps_uc_base1-vax_del_ns_uc_base1,
          years_between=TCV_MAPS_intro_date-TCV_NS_intro_date,
-         meaninc = ifelse(meaninc>1000, 1000, meaninc))
+         meaninc = ifelse(meaninc>1000, 1000, meaninc)) # %>% # top-code inc at 1000 or else the graph doesn't work well 
+  # mutate(CEAindex = ifelse(CEAindex>100, 100, CEAindex)
 
-## Plain corr -----
-sa_graph = function(xcol, labcol){
-  tmp_sensdata = sensdata %>% rename("xcol"=xcol)
+# Normalized regression to show magnitude of impact
+
+# All the predictors
+drivers_lm1 = lm(log(pmax(CEAindex, 0.01)) ~ 
+                  scale(meaninc) + scale(death_per_case) + scale(meanage) + 
+                  scale(mcv1_cov_wq1) + scale(amr_prob) + scale(mcv1_cov) + 
+                  scale(sani_cov_wq1) + scale(sani_cov) + scale(lifexp) + 
+                  scale(avgtrtcost) + scale(years_between) + scale(add_del),
+                data = sensdata) 
+vif(drivers_lm1)
+
+# Remove those with VIF>10 (multicollinearity)
+drivers_lm2 = lm(log(pmax(CEAindex, 0.01)) ~ 
+                  scale(meaninc) + scale(death_per_case) + scale(meanage) + 
+                  scale(amr_prob) + scale(mcv1_cov) + scale(sani_cov_wq1) + 
+                  scale(lifexp) + scale(avgtrtcost) + scale(years_between) + scale(add_del),
+                data = sensdata) 
+vif(drivers_lm2)
+
+# Final model
+drivers_lm3 = lm(log(pmax(CEAindex, 0.01)) ~ 
+                  scale(meaninc) + scale(death_per_case) + scale(meanage) +
+                  scale(mcv1_cov) + scale(lifexp) + scale(years_between),
+                data = sensdata)
+vif(drivers_lm3)
+
+# Regression with each intput, 1 at a time
+drivers_ind = list()
+for(xcol in inputs) {
+  tmp = sensdata %>% rename("xcol" = xcol)
+  drivers_ind[[xcol]] = lm(log(pmax(CEAindex, 0.01)) ~ scale(xcol), data = tmp)
+}
+
+val_uni = sapply(inputs, function(i){coef(drivers_ind[[i]])[2]})
+
+mv_df = tibble(Variable = c(paste0("scale(", inputs, ")"),
+                            names(coef(drivers_lm1))[-1], 
+                            names(coef(drivers_lm2))[-1], 
+                            names(coef(drivers_lm3))[-1]),
+                    Model = c(rep("Univariate model", length(coef(drivers_lm1))-1),
+                              rep("Multivariate model", length(coef(drivers_lm1))-1), 
+                              rep("Multivariate model-\nno multicolinearity", length(coef(drivers_lm2))-1), 
+                              rep("Multivariate model-\nonly significant inputs", length(coef(drivers_lm3))-1)),
+                    Value = c(as.numeric(val_uni),
+                              as.numeric(coef(drivers_lm1))[-1], 
+                              as.numeric(coef(drivers_lm2)[-1]), 
+                              as.numeric(coef(drivers_lm3)[-1]))) %>% 
+  mutate(Variable = str_remove_all(Variable, "scale\\(|\\)")) %>% 
+  mutate(Variable = factor(Variable, levels=inputs, labels=inputnames)) %>% 
+  mutate(Model = factor(Model, levels=c("Univariate model", 
+                                        "Multivariate model",
+                                        "Multivariate model-\nno multicolinearity",
+                                        "Multivariate model-\nonly significant inputs")))
+
+# order_vars = data.frame(varnames = names(coef(drivers_lm1))[-1], 
+#            values = as.numeric(coef(drivers_lm1)[-1])) %>% 
+#   arrange(abs(values)) %>% 
+#   mutate(varnames = str_remove_all(varnames, "scale\\(|\\)"))
+
+order_vars = data.frame(varnames = inputnames, values = as.numeric(val_uni)) %>% 
+  arrange(abs(values)) 
+
+ggplot(mv_df, aes(x = Variable, y = Value)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +  # Horizontal bars for better readability
+  labs(title = "Drivers of cost-effectiveness",
+       x = NULL,
+       y = "Coefficients of regression with standardized predictors\n(1 SD increase in input = 1 GDP increase in ICER)") +
+  facet_grid(.~Model) + 
+  scale_x_discrete(limits = order_vars$varnames) + 
+  theme_bw() + themebar + theme(plot.title=element_text(hjust=0.5))
+
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/InfluentialParameters_tornadomodels.pdf", width = 12, height = 6, units="in")
+
+# Graph: individual inputs & MV inputs ----------------
+
+## Corr while adjusting for inputs -----
+drivers_lm = lm(log(pmax(CEAindex, 0.01)) ~ 
+                  meaninc + death_per_case + meanage +
+                  amr_prob + mcv1_cov + sani_cov_wq1 + 
+                  lifexp + avgtrtcost + years_between,
+                data = sensdata) 
+
+summary(drivers_lm)
+# If I do a more limited model, then put the other coeffs as 0, so the function still works.
+
+# Get mean values of other predictors
+
+inputs = c("meaninc", "death_per_case", "meanage", "mcv1_cov_wq1", 
+           "amr_prob", "mcv1_cov", "sani_cov_wq1", "sani_cov", "lifexp", 
+           "avgtrtcost", "years_between", "add_del")
+
+inputnames = c("Mean incidence per 100K\nwithout any vaccination", 
+               "Case fatality rate", 
+               "Mean age of infection\nwithout any vaccination", 
+               "Vaccine coverage -\nMCV1, WQ1", 
+               "Prevalence of AMR", 
+               "Vaccine coverage - MCV1",
+               "Improved sanitation\ncoverage, WQ1",
+               "Improved sanitation\ncoverage",
+               "Life expectancy",
+               "Average treatment costs",
+               "Years between\nN&S & MAPs deployment",
+               "Additional delivery costs\nof MAPs vs. N&S (USD)") 
+
+predictor_means = sensdata %>% 
+  dplyr::summarize(across(all_of(inputs[c(1:3,5:7,9:11)]), mean))
+
+# Define a function for stat_function
+predict_madj = function(x, xcol_name) {
+  coefs = coef(drivers_lm)  # Extract model coefficients
+  predictors = names(coefs)[-1]  # Get predictor names (excluding intercept)
+  
+  # Set up a named vector with means for all predictors
+  predictor_values = as.list(predictor_means)
+  
+  # Compute predicted y using all predictors
+  if(xcol_name %in% predictors){
+    predictor_values[[xcol_name]] = x  # Replace x with the provided value
+    y_pred = coefs[1] + sum(coefs[predictors] * unlist(predictor_values[predictors]))
+    }else{ # If there is no predictor, give back 0 
+    y_pred = NA
+    } 
+    
+  return(y_pred)
+}
+
+sa_graph = function(xcol_name, labcol){
+  tmp_sensdata = sensdata %>% rename("xcol"=xcol_name)
   tmp_fabfive = tmp_sensdata %>% filter(ISO %in% c("IND", "NPL", "MWI", "KEN", "BFA")) 
-  tmp_sa = cor.test(tmp_sensdata$xcol, tmp_sensdata$icers/tmp_sensdata$gdp)
+  tmp_sa = cor.test(tmp_sensdata$xcol, log(pmax(tmp_sensdata$CEAindex, 0.01)), method="pearson")
   tmp_pval = ifelse(tmp_sa$p.value>0.001, paste0(" (p=",  round(tmp_sa$p.value, digits=3),")"), " (p<0.001)") 
-  m = lm(CEAindex~xcol, data=tmp_sensdata)
+  m = lm(log(pmax(CEAindex, 0.01))~xcol, data=tmp_sensdata)
   
   return(ggplot(data=tmp_sensdata, aes(x=xcol, y=CEAindex, group=1)) + 
-    xlab(NULL) + ylab(NULL) + 
-    labs(title=labcol) + 
-    geom_point(color="gray80") + 
-    stat_function(fun = ~predict(m, data.frame(xcol = .x))) +
-    # geom_smooth(method = "lm", se = F, color="gray60") + 
-    annotate("text", x=Inf,y=Inf,hjust=1.15,vjust=1.75,
-             size=4, fontface="bold", 
-             label=paste0("corr: ", round(tmp_sa$estimate, digits=2), tmp_pval), parse=F) + 
-    geom_point(data=tmp_fabfive, aes(x=xcol, y=icers/gdp, color=ISO, shape=ISO), size=3) + 
-      scale_y_continuous(limits = c(0, 100)) + 
-    scale_shape_manual(values=15:19, labels=c("Burkina Faso", "India", "Kenya", "Malawi", "Nepal")) + 
-    scale_color_manual(values=c(7,4,9:11), labels=c("Burkina Faso", "India", "Kenya", "Malawi", "Nepal")) +
-    themebar + theme(plot.title=element_text(hjust=0.5, size=12))) 
-  } 
-  
-sa_amr = sa_graph("amr_prob", "Prevalence of AMR")
-sa_lifeexp = sa_graph("lifexp", "Life expectancy")
-sa_mcv1cov = sa_graph("mcv1_cov", "Vaccine coverage - MCV1")
-sa_death = sa_graph("death_per_case", "Case fatality rate") 
+           xlab(NULL) + ylab(NULL) + 
+           labs(title=labcol) + 
+           geom_point(color="gray80") + 
+           stat_function(fun = ~exp(predict(m, data.frame(xcol = .x)))) +
+           stat_function(fun = ~sapply(.x, function(i){exp(predict_madj(i, xcol_name))}), color="gray60") +
+           # geom_smooth(method = "lm", se = F, color="gray60") + 
+           annotate("text", x=Inf, y=Inf,hjust=1.15,vjust=1.75,
+                    size=4, fontface="bold", 
+                    label=paste0("corr: ", round(tmp_sa$estimate, digits=2), tmp_pval), parse=F) + 
+           geom_point(data=tmp_fabfive, aes(x=xcol, y=icers/gdp, color=ISO, shape=ISO), size=3) + 
+           scale_y_continuous(limits = c(0, 100)) + 
+           scale_shape_manual(values=15:19, labels=c("Burkina Faso", "India", "Kenya", "Malawi", "Nepal")) + 
+           scale_color_manual(values=c(7,4,9:11), labels=c("Burkina Faso", "India", "Kenya", "Malawi", "Nepal")) +
+           themebar + theme(plot.title=element_text(hjust=0.5, size=12))) 
+} 
+
 sa_incidence = sa_graph("meaninc", "Mean incidence per 100K\nwithout any vaccination") 
+sa_death = sa_graph("death_per_case", "Case fatality rate") 
 sa_meanage = sa_graph("meanage", "Mean age of infection\nwithout any vaccination") # p=0 should be p<0.001
 sa_mcv1covwq1 = sa_graph("mcv1_cov_wq1", "Vaccine coverage -\nMCV1, WQ1")
-sa_sanicov = sa_graph("sani_cov", "Improved sanitation\ncoverage") # p=0 should be p<0.001
+sa_amr = sa_graph("amr_prob", "Prevalence of AMR")
+sa_mcv1cov = sa_graph("mcv1_cov", "Vaccine coverage - MCV1")
 sa_sanicovwq1 = sa_graph("sani_cov_wq1", "Improved sanitation\ncoverage, WQ1") # p=0 should be p<0.001
+sa_sanicov = sa_graph("sani_cov", "Improved sanitation\ncoverage") # p=0 should be p<0.001
+sa_lifeexp = sa_graph("lifexp", "Life expectancy")
+sa_trt_cost = sa_graph("avgtrtcost", "Average treatment costs") 
+sa_years_between = sa_graph("years_between", "Years between\nN&S & MAPs deployment")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/YearsBetween_3d.pdf", width = 4, height = 4, units="in")
 sa_add_del_cost = sa_graph("add_del", "Additional delivery costs\nof MAPs vs. N&S (USD)") 
 
-sa_years_between = sa_graph("years_between", "Years between\nN&S & MAPs deployment")
-ggsave("./figures/EpiBaseline/YearsBetween_3d.pdf", width = 4, height = 4, units="in")
+pllegend = get_plot_component(sa_trt_cost, "guide-box-bottom")
 
-sa_trt_cost = sa_graph("avgtrtcost", "Average treatment costs") 
+all_drivers = plot_grid(
+  sa_meanage + theme(legend.position = 'none'), 
+  sa_incidence + theme(legend.position = 'none'),
+  sa_mcv1covwq1 + theme(legend.position = 'none'),
+  sa_sanicovwq1 + theme(legend.position = 'none'),
+  sa_sanicov + theme(legend.position = 'none'),
+  sa_lifeexp + theme(legend.position = 'none'),
+  sa_death + theme(legend.position = 'none'),
+  sa_mcv1cov + theme(legend.position = 'none'),
+  sa_amr + theme(legend.position = 'none'), 
+  sa_years_between + theme(legend.position = 'none'),
+  sa_trt_cost + theme(legend.position = 'none'),
+  sa_add_del_cost + theme(legend.position = 'none'),
+  nrow=4, ncol=3, labels=NULL,
+  align="hv") + # ADD the legend
+  theme(plot.margin = margin(0.25,0.5,1.5,1, "cm")) +
+  draw_label("ICER scaled by GDP per capita", 
+             angle = 90, fontface="bold", vjust=-27.5) + 
+  draw_grob(pllegend, vjust=0.525)
 
-# pllegend <- get_legend(
-#   sa_trt_cost + 
-#     guides(color=guide_legend(nrow=5), shape=guide_legend(nrow=5)) + 
-#     theme(legend.text = element_text(size=9))
-# )
-# 
-# # arrange with ggarrange...
-# all_drivers = plot_grid(sa_add_del_cost+theme(legend.position = "none"), 
-#                         sa_meanage+theme(legend.position = "none"), 
-#                         sa_mcv1cov+theme(legend.position = "none"), 
-#                         sa_amr+theme(legend.position = "none"),
-#                         sa_incidence+theme(legend.position = "none"), 
-#                         sa_death+theme(legend.position = "none"), 
-#                         sa_lifeexp+theme(legend.position = "none"), 
-#                         sa_years_between+theme(legend.position = "none"), 
-#                         sa_trt_cost+theme(legend.position = "none"), 
-#                         sa_sanicov+theme(legend.position = "none"), 
-#                         sa_sanicovwq1+theme(legend.position = "none"), 
-#                         sa_mcv1covwq1+theme(legend.position = "none"), 
-#                         # pllegend,
-#           ncol = 3, nrow = 4, rel_widths = c(1, 1, 1), 
-#           align="hv") + 
-#   theme(plot.margin = margin(0.25,0.25,0.5,0.25, "cm")) 
-#   annotate_figure(all_drivers, left = text_grob("ICER scaled by GDP per capita", color = "black", rot = 90, face="bold")) 
-  
-  all_drivers = ggarrange(sa_add_del_cost,
-            sa_meanage, 
-            sa_mcv1cov,
-            sa_incidence,
-            sa_amr, 
-            sa_death,
-            sa_lifeexp,
-            sa_years_between,
-            sa_trt_cost,
-            sa_sanicov,
-            sa_sanicovwq1,
-            sa_mcv1covwq1,
-            nrow=4, ncol=3, labels=NULL,
-            common.legend = T, legend = "bottom", align="hv") 
-  annotate_figure(all_drivers, left = text_grob("ICER scaled by GDP per capita", color = "black", rot = 90, face="bold")) 
-  
-ggsave("./figures/EpiBaseline/InfluentialParameters_3d.pdf", width = 8, height = 10, units="in")
+ggsave("../out_global_cea/maps_tcv_global/figures/EpiBaseline/InfluentialParameters_3d_log.pdf", width = 8, height = 10, units="in")
 
 # National results for the 5 DD countries -----
 tmp = icer_results_all %>% dplyr::filter(horizon=="20y", comp=="80% switch to MAPs", 
